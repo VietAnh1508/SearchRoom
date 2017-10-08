@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Create account</title>
@@ -22,6 +23,11 @@
     <jsp:include page="../partials/_menu.jsp"/>
 
     <h1>Create your account</h1>
+    
+    <c:if test="${notification != null}">
+        <p style="color: chartreuse; font-weight: bold">${notification} You can <a href="login">login</a> now</p>
+    </c:if>
+
     <form:form commandName="account" method="post">
         <%--<form:errors path="*" cssClass="errorblock" element="div"/>--%>
         <table align="center">

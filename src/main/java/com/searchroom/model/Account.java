@@ -1,16 +1,13 @@
 package com.searchroom.model;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 public class Account {
 
     @NotEmpty
-    @Size(min = 3, max = 50)
     private String username;
 
     @NotEmpty
-    @Size(min = 4, max = 50)
     private String password;
 
     private String role;

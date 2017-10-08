@@ -2,17 +2,17 @@ package com.searchroom.controller;
 
 import com.searchroom.model.Account;
 import com.searchroom.service.AccountService;
+import com.searchroom.utils.MD5Library;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
-@SessionAttributes("loginedAccount")
 public class AccountController {
 
     @Autowired
@@ -31,8 +31,10 @@ public class AccountController {
             return new ModelAndView("register");
         }
 
+        String hashedPassword = MD5Library.md5(account.getPassword());
+        account.setPassword(hashedPassword);
         accountService.addAccount(account);
-        return new ModelAndView("redirect:/login",
+        return new ModelAndView("register",
                 "notification", "Create account successfully");
     }
 
@@ -42,27 +44,30 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView loginSubmit(@Valid @ModelAttribute("account")Account account, BindingResult result) {
-        ModelAndView model = null;
+    public ModelAndView loginSubmit(@Valid @ModelAttribute("account")Account account,
+                                    BindingResult result, HttpServletRequest request) {
+        ModelAndView model;
         if (result.hasErrors()) {
             return new ModelAndView("login");
         }
 
+        String hashedPassword = MD5Library.md5(account.getPassword());
+        account.setPassword(hashedPassword);
         Account loginedAccount = accountService.getAccount(account);
         if (loginedAccount != null) {
+            request.getSession().setAttribute("LOGINED_USER", loginedAccount);
             model = new ModelAndView("redirect:/customerInfo");
-            model.addObject("loginedAccount", loginedAccount);
         } else {
-            model = new ModelAndView("login");
-            model.addObject("message", "Username or Password is invalid");
+            model = new ModelAndView("login",
+                    "message", "Username or Password is incorrect");
         }
 
         return model;
     }
 
     @RequestMapping(value = "/logout")
-    public ModelAndView logout(SessionStatus status) {
-        status.setComplete();
+    public ModelAndView logout(HttpServletRequest request) {
+        request.getSession().invalidate();
         return new ModelAndView("redirect:/index");
     }
 

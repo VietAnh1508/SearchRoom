@@ -19,7 +19,7 @@
 </head>
 <body>
     <h1>Login to your account</h1>
-    <p style="color: chartreuse; font-weight: bold">${notification}</p>
+    <p class="error">${message}</p>
 
     <form:form commandName="account" method="post">
         <form:errors path="*" cssClass="errorblock" element="div"/>
