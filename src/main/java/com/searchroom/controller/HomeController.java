@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = { "/", "/index" })
     public String home(Model model) {
         model.addAttribute("greeting", "Welcome to my website");
         return "index";
