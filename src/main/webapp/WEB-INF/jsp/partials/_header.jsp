@@ -6,16 +6,22 @@
     </div>
 
     <div style="float: right; padding: 10px; text-align: right;">
-        <a href="/post">Add news</a> |
         <c:choose>
             <c:when test="${LOGINED_USER.username == null}">
+                <a href="/post">Add news</a> |
                 <a href="/login">Login</a> |
                 <a href="/register">Register</a>
             </c:when>
             <c:when test="${LOGINED_USER.username != null}">
-                <c:if test="${LOGINED_USER.role == \"ADMIN\"}">
-                    <a href="/admin/manage">Web Manager</a> |
-                </c:if>
+                <c:choose>
+                    <c:when test="${LOGINED_USER.role == \"ADMIN\"}">
+                        <a href="/admin/manage">Web Manager</a> |
+                    </c:when>
+                    <c:when test="${LOGINED_USER.role == \"CUSTOMER\"}">
+                        <a href="/post">Add news</a> |
+                        <a href="/customerInfo">Account's info</a> |
+                    </c:when>
+                </c:choose>
                 <a href="/logout">Log out</a>
             </c:when>
         </c:choose>

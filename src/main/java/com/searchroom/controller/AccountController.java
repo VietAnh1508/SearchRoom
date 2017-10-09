@@ -56,7 +56,11 @@ public class AccountController {
         Account loginedAccount = accountService.getAccount(account);
         if (loginedAccount != null) {
             request.getSession().setAttribute("LOGINED_USER", loginedAccount);
-            model = new ModelAndView("redirect:/customerInfo");
+            if (loginedAccount.getRole().equals("CUSTOMER")) {
+                model = new ModelAndView("redirect:/customerInfo");
+            } else {
+                model = new ModelAndView("redirect:/admin");
+            }
         } else {
             model = new ModelAndView("login",
                     "message", "Username or Password is incorrect");

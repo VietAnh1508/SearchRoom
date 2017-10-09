@@ -23,7 +23,7 @@
     <jsp:include page="../partials/_menu.jsp"/>
 
     <h1>Create your account</h1>
-    
+
     <c:if test="${notification != null}">
         <p style="color: chartreuse; font-weight: bold">${notification} You can <a href="login">login</a> now</p>
     </c:if>

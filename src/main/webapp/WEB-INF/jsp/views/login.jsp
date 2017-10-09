@@ -21,7 +21,7 @@
     <h1>Login to your account</h1>
     <p class="error">${message}</p>
 
-    <form:form commandName="account" method="post">
+    <form:form commandName="account">
         <form:errors path="*" cssClass="errorblock" element="div"/>
         <table align="center">
             <tr>
