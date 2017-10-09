@@ -19,7 +19,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void addCustomer(Customer customer) {
+    public void addCustomer(Customer customer) throws SQLException {
         String sql = "insert into customers (full_name, phone_number, email, username) values (?, ?, ?, ?)";
         jdbcTemplate.update(sql, new Object[] {
                 customer.getFullName(),
@@ -49,6 +49,12 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         }
 
         return null;
+    }
+
+    public void updateCustomer(Customer customer) throws SQLException {
+        String sql =  "update customers set full_name = ?, phone_number = ?, email = ?";
+        jdbcTemplate.update(sql,
+                new Object[] { customer.getUsername(), customer.getPhoneNumber(), customer.getEmail()});
     }
 
 }

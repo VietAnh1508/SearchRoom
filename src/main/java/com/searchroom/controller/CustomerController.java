@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.sql.SQLException;
 
 @Controller
 public class CustomerController {
@@ -39,12 +40,27 @@ public class CustomerController {
 
     @RequestMapping(value = "customerInfo", method = RequestMethod.POST)
     public ModelAndView addCustomer(@Valid @ModelAttribute("customer")Customer customer, BindingResult result) {
+        ModelAndView mav = new ModelAndView("customerInfo");
         if (result.hasErrors()) {
             System.out.println(customer.getUsername());
-            return new ModelAndView("customerInfo", "customer", customer);
+            mav.addObject("customer", customer);
+            return mav;
         }
-        customerService.addCustomer(customer);
-        return new ModelAndView("customerInfo", "notification", "Update info successfully");
+
+        Customer alreadyExistCustomer = customerService.getCustomerByUsername(customer.getUsername());
+        try {
+            if (alreadyExistCustomer == null) {
+                customerService.addCustomer(customer);
+            } else {
+                customerService.updateCustomer(customer);
+            }
+            mav.addObject("notification", "Update info successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mav.addObject("error", "Unexpected error, please try again");
+        }
+
+        return mav;
     }
 
 }
