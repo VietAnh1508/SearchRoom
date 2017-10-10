@@ -35,6 +35,10 @@
                 <td><form:errors path="password" cssClass="error"/></td>
             </tr>
             <tr>
+                <td>Remember Me</td>
+                <td><input type="checkbox" name="remember-me" value="Y"/></td>
+            </tr>
+            <tr>
                 <td colspan="3">
                     <input type="submit" value="Log in"/>
                 </td>

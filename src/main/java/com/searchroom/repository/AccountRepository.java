@@ -4,7 +4,8 @@ import com.searchroom.model.Account;
 
 public interface AccountRepository {
 
-    Account getAccount(Account account);
     void addAccount(Account account);
+    Account getAccount(Account account);
+    Account getAccountByUsername(String username);
 
 }

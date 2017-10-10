@@ -1,5 +1,6 @@
 package com.searchroom.repository.impl;
 
+import com.searchroom.mapper.AccountMapper;
 import com.searchroom.model.Account;
 import com.searchroom.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     public void addAccount(Account account) {
         String sql = "insert into accounts (username, password, role) values (?, ?, ?)";
-        jdbcTemplate.update(sql, new Object[]{account.getUsername(), account.getPassword(), "CUSTOMER"});
+        jdbcTemplate.update(sql, new Object[] { account.getUsername(), account.getPassword(), "CUSTOMER" });
     }
 
     public Account getAccount(Account account) {
@@ -30,13 +31,18 @@ public class AccountRepositoryImpl implements AccountRepository {
         List<Account> result = jdbcTemplate.query(
                 sql,
                 new Object[] { account.getUsername(), account.getPassword() },
-                new RowMapper<Account>() {
-                    public Account mapRow(ResultSet resultSet, int i) throws SQLException {
-                        String username = resultSet.getString("username");
-                        String role = resultSet.getString("role");
-                        return new Account(username, role);
-                    }
-                });
+                new AccountMapper());
+
+        if (result.size() == 1) {
+            return result.get(0);
+        }
+        return null;
+    }
+
+    public Account getAccountByUsername(String username) {
+        String sql = "select username, role from accounts where username = ?";
+
+        List<Account> result = jdbcTemplate.query(sql, new Object[] { username }, new AccountMapper());
 
         if (result.size() == 1) {
             return result.get(0);

@@ -1,6 +1,7 @@
 package com.searchroom.config;
 
 import com.searchroom.interceptor.AuthenticationInterceptor;
+import com.searchroom.interceptor.CookieInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
@@ -11,10 +12,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.sql.DataSource;
+import javax.xml.ws.WebEndpoint;
 
 @Configuration
 @EnableWebMvc
@@ -57,9 +58,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return messageSource;
     }
 
+    @Bean
+    public CookieInterceptor cookieInterceptor() {
+        return new CookieInterceptor();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthenticationInterceptor());
+        registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/post", "/admin");
+        registry.addInterceptor(cookieInterceptor()).addPathPatterns("/*");
     }
 
 }

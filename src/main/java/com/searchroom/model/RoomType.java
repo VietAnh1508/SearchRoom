@@ -1,9 +1,16 @@
 package com.searchroom.model;
 
+import javax.validation.constraints.NotEmpty;
+
 public class RoomType {
 
     private int id;
+
+    @NotEmpty
     private String description;
+
+    public RoomType() {
+    }
 
     public RoomType(int id, String description) {
         this.id = id;

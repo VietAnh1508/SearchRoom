@@ -32,8 +32,7 @@ public class CityRepositoryImpl implements CityRepository {
     public List<City> getCities() {
         String sql = "select * from cities";
 
-        CityMapper mapper = new CityMapper();
-        List<City> cities = jdbcTemplate.query(sql, mapper);
+        List<City> cities = jdbcTemplate.query(sql, new CityMapper());
         return cities;
     }
 

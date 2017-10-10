@@ -2,10 +2,9 @@ package com.searchroom.controller;
 
 import com.searchroom.model.Account;
 import com.searchroom.model.Customer;
-import com.searchroom.service.CustomerService;
+import com.searchroom.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,14 +19,14 @@ import java.sql.SQLException;
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+    private CustomerRepository customerRepository;
 
     @RequestMapping(value = "/customerInfo", method = RequestMethod.GET)
     public ModelAndView showInfo(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("customerInfo");
 
         Account loginedUser = (Account) request.getSession().getAttribute("LOGINED_USER");
-        Customer customer = customerService.getCustomerByUsername(loginedUser.getUsername());
+        Customer customer = customerRepository.getCustomerByUsername(loginedUser.getUsername());
         if (customer == null) {
             customer = new Customer();
             customer.setUsername(loginedUser.getUsername());
@@ -47,12 +46,12 @@ public class CustomerController {
             return mav;
         }
 
-        Customer alreadyExistCustomer = customerService.getCustomerByUsername(customer.getUsername());
+        Customer alreadyExistCustomer = customerRepository.getCustomerByUsername(customer.getUsername());
         try {
             if (alreadyExistCustomer == null) {
-                customerService.addCustomer(customer);
+                customerRepository.addCustomer(customer);
             } else {
-                customerService.updateCustomer(customer);
+                customerRepository.updateCustomer(customer);
             }
             mav.addObject("notification", "Update info successfully");
         } catch (SQLException e) {

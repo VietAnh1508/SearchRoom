@@ -13,10 +13,6 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountRepository accountRepository;
 
-    public boolean supports(Class<?> clazz) {
-        return Account.class.isAssignableFrom(clazz);
-    }
-
     public void validate(Object target, String confirmPassword, Errors errors) {
         Account account = (Account) target;
 
@@ -25,14 +21,6 @@ public class AccountServiceImpl implements AccountService {
                     "matchingPassword.account.password",
                     "Password and Confirm password not match");
         }
-    }
-
-    public void addAccount(Account account) {
-        accountRepository.addAccount(account);
-    }
-
-    public Account getAccount(Account loginAccount) {
-        return accountRepository.getAccount(loginAccount);
     }
 
 }

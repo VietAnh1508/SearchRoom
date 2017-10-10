@@ -7,17 +7,17 @@
 
     <div style="float: right; padding: 10px; text-align: right;">
         <c:choose>
-            <c:when test="${LOGINED_USER.username == null}">
+            <c:when test="${LOGGED_IN_USER.username == null}">
                 <a href="/post">Add news</a> |
                 <a href="/login">Login</a> |
                 <a href="/register">Register</a>
             </c:when>
-            <c:when test="${LOGINED_USER.username != null}">
+            <c:when test="${LOGGED_IN_USER.username != null}">
                 <c:choose>
-                    <c:when test="${LOGINED_USER.role == \"ADMIN\"}">
-                        <a href="/admin/manage">Web Manager</a> |
+                    <c:when test="${LOGGED_IN_USER.role == \"ADMIN\"}">
+                        <a href="/admin">Web Manager</a> |
                     </c:when>
-                    <c:when test="${LOGINED_USER.role == \"CUSTOMER\"}">
+                    <c:when test="${LOGGED_IN_USER.role == \"CUSTOMER\"}">
                         <a href="/post">Add news</a> |
                         <a href="/customerInfo">Account's info</a> |
                     </c:when>

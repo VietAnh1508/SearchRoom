@@ -12,13 +12,10 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String uri = request.getRequestURI();
-        if (uri.endsWith("post") || uri.endsWith("admin")) {
-            Account account = (Account) request.getSession().getAttribute("LOGINED_USER");
-            if (account == null) {
-                response.sendRedirect("/login");
-                return false;
-            }
+        Account account = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
+        if (account == null) {
+            response.sendRedirect("/login");
+            return false;
         }
         return true;
     }
