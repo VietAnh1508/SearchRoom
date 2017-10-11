@@ -22,26 +22,7 @@ public class RoomTypeRepositoryImpl implements RoomTypeRepository {
         jdbcTemplate.update(sql, new Object[] { description });
     }
 
-    public List<RoomType> getRoomTypeList() {
-        String sql = "select * from room_types";
-
-        List<RoomType> roomTypes = jdbcTemplate.query(sql, new RoomTypeMapper());
-
-        return roomTypes;
-    }
-
-    public RoomType getRoomTypeById(int id) {
-        String sql = "select * from room_types where type_id = ?";
-
-        List<RoomType> result = jdbcTemplate.query(sql, new Object[] { id }, new RoomTypeMapper());
-
-        if (result.size() == 1) {
-            return result.get(0);
-        }
-        return null;
-    }
-
-    public void editRoomType(RoomType roomType) {
+    public void updateRoomType(RoomType roomType) {
         String sql = "update room_types set description = ? where type_id = ?";
         jdbcTemplate.update(sql, new Object[] { roomType.getDescription(), roomType.getId() });
     }
@@ -49,6 +30,23 @@ public class RoomTypeRepositoryImpl implements RoomTypeRepository {
     public void deleteRoomType(int id) {
         String sql = "delete from room_types where type_id = ?";
         jdbcTemplate.update(sql, new Object[] { id });
+    }
+
+    public RoomType getRoomTypeById(int id) {
+        String sql = "select * from room_types where type_id = ?";
+
+        List<RoomType> result = jdbcTemplate.query(sql, new Object[] { id }, new RoomTypeMapper());
+        if (result.size() == 1) {
+            return result.get(0);
+        }
+        return null;
+    }
+
+    public List<RoomType> getRoomTypeList() {
+        String sql = "select * from room_types";
+
+        List<RoomType> roomTypes = jdbcTemplate.query(sql, new RoomTypeMapper());
+        return roomTypes;
     }
 
 }

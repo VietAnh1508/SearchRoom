@@ -11,8 +11,9 @@
 <body>
     <jsp:include page="../partials/_header.jsp"/>
     <jsp:include page="../partials/_menu.jsp"/>
+    <jsp:include page="../partials/_admin_menu.jsp"/>
 
-    <h1>Cities List</h1>
+    <h1>Manage City</h1>
 
     <form:form commandName="city" action="/city/add">
         <table>
@@ -42,7 +43,7 @@
     </form:form>
     <br/>
     <h1>List cities</h1>
-    <c:if test="${!empty cities}">
+    <c:if test="${!empty cityList}">
         <table>
             <tr>
                 <th>ID</th>
@@ -50,12 +51,12 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            <c:forEach items="${cities}" var="city">
+            <c:forEach items="${cityList}" var="city">
                 <tr>
                     <td>${city.id}</td>
                     <td>${city.name}</td>
-                    <td><a href="<c:url value="/edit/${city.id}"/>">Edit</a></td>
-                    <td><a href="<c:url value="/remove/${city.id}"/>">Delete</a></td>
+                    <td><a href="<c:url value="/city/edit/${city.id}"/>">Edit</a></td>
+                    <td><a href="<c:url value="/city/delete/${city.id}"/>">Delete</a></td>
                 </tr>
             </c:forEach>
         </table>

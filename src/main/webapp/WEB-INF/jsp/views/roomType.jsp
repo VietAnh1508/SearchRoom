@@ -11,6 +11,7 @@
 <body>
     <jsp:include page="../partials/_header.jsp"/>
     <jsp:include page="../partials/_menu.jsp"/>
+    <jsp:include page="../partials/_admin_menu.jsp"/>
 
     <h1>Manage Room type</h1>
 
@@ -54,8 +55,8 @@
                 <tr>
                     <td>${roomType.id}</td>
                     <td>${roomType.description}</td>
-                    <td><a href="<c:url value="/edit/${roomType.id}"/>">Edit</a></td>
-                    <td><a href="<c:url value="/remove/${roomType.id}"/>">Delete</a></td>
+                    <td><a href="<c:url value="/roomType/edit/${roomType.id}"/>">Edit</a></td>
+                    <td><a href="<c:url value="/roomType/remove/${roomType.id}"/>">Delete</a></td>
                 </tr>
             </c:forEach>
         </table>

@@ -1,8 +1,12 @@
 package com.searchroom.model;
 
+import javax.validation.constraints.NotEmpty;
+
 public class City {
 
     private int id;
+
+    @NotEmpty
     private String name;
 
     public City() {

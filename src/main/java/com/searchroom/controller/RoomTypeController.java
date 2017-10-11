@@ -15,19 +15,20 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping("/roomType")
 public class RoomTypeController {
 
     @Autowired
     private RoomTypeRepository roomTypeRepository;
 
-    @RequestMapping(value = "/roomType", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String showRoomTypeList(Model model) {
         model.addAttribute("roomType", new RoomType());
         model.addAttribute("roomTypeList", roomTypeRepository.getRoomTypeList());
         return "roomType";
     }
 
-    @RequestMapping(value = "/roomType/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addRoomType(@Valid @ModelAttribute("roomType")RoomType roomType, BindingResult result) {
         if (result.hasErrors()) {
             return new ModelAndView("roomType",
@@ -37,7 +38,7 @@ public class RoomTypeController {
         if (roomType.getId() == 0) {
             roomTypeRepository.addRoomType(roomType.getDescription());
         } else {
-            roomTypeRepository.editRoomType(roomType);
+            roomTypeRepository.updateRoomType(roomType);
         }
         return new ModelAndView("redirect:/roomType");
     }

@@ -17,27 +17,36 @@ public class CityRepositoryImpl implements CityRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void addCity(City city) {
-
+    public void addCity(String cityName) {
+        String sql = "insert into cities (city_name) values (?)";
+        jdbcTemplate.update(sql, new Object[] { cityName });
     }
 
     public void updateCity(City city) {
-
+        String sql = "update cities set city_name = ? where city_id = ?";
+        jdbcTemplate.update(sql, new Object[] { city.getName(), city.getId() });
     }
 
-    public City getCityById(int cityId) {
+    public void deleteCity(int id) {
+        String sql = "delete from cities where city_id = ?";
+        jdbcTemplate.update(sql, new Object[] { id });
+    }
+
+    public City getCityById(int id) {
+        String sql = "select * from cities where city_id = ?";
+
+        List<City> result = jdbcTemplate.query(sql, new Object[] { id }, new CityMapper());
+        if (result.size() == 1) {
+            return result.get(0);
+        }
         return null;
     }
 
-    public List<City> getCities() {
+    public List<City> getCityList() {
         String sql = "select * from cities";
 
-        List<City> cities = jdbcTemplate.query(sql, new CityMapper());
-        return cities;
-    }
-
-    public void removeCity(int cityId) {
-
+        List<City> cityList = jdbcTemplate.query(sql, new CityMapper());
+        return cityList;
     }
 
 }

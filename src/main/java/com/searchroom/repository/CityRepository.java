@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface CityRepository {
 
-    void addCity(City city);
+    void addCity(String cityName);
     void updateCity(City city);
-    City getCityById(int cityId);
-    List<City> getCities();
-    void removeCity(int cityId);
+    void deleteCity(int id);
+    City getCityById(int id);
+    List<City> getCityList();
 
 }

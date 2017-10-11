@@ -5,38 +5,52 @@ import com.searchroom.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+
 @Controller
-@RequestMapping(value = "/cities")
+@RequestMapping("/city")
 public class CityController {
 
     @Autowired
     private CityRepository cityRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getCities(Model model) {
+    public String showCityList(Model model) {
         model.addAttribute("city", new City());
-        model.addAttribute("cities", cityRepository.getCities());
-        return "cities";
+        model.addAttribute("cityList", cityRepository.getCityList());
+        return "city";
     }
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editCity(@PathVariable("id") int cityId) {
-        ModelAndView model;
-        if (cityRepository.getCityById(cityId) == null) {
-            model = new ModelAndView("redirect:/cities");
-//            return "redirect:/cities";
-        } else {
-            model = new ModelAndView("editCity");
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ModelAndView addCity(@Valid @ModelAttribute("city")City city, BindingResult result) {
+        if (result.hasErrors()) {
+            return new ModelAndView("city",
+                    "cityList", cityRepository.getCityList());
         }
-        return model;
+
+        if (city.getId() == 0) {
+            cityRepository.addCity(city.getName());
+        } else {
+            cityRepository.updateCity(city);
+        }
+        return new ModelAndView("redirect:/city");
     }
 
-    @RequestMapping(value = "/delete/{id}")
-    public String deleteCity(@PathVariable("id") int cityId) {
-        return "";
+    @RequestMapping("/edit/{id}")
+    public String editCity(@PathVariable("id") int id, Model model) {
+        model.addAttribute("city", cityRepository.getCityById(id));
+        model.addAttribute("cityList", cityRepository.getCityList());
+        return "city";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String removeCity(@PathVariable("id") int id) {
+        cityRepository.deleteCity(id);
+        return "redirect:/city";
     }
 
 }
