@@ -1,8 +1,10 @@
 package com.searchroom.controller;
 
+import com.searchroom.model.City;
 import com.searchroom.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,8 +16,10 @@ public class CityController {
     private CityRepository cityRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getCities() {
-        return new ModelAndView("cities", "cities", cityRepository.getCities());
+    public String getCities(Model model) {
+        model.addAttribute("city", new City());
+        model.addAttribute("cities", cityRepository.getCities());
+        return "cities";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)

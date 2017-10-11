@@ -1,15 +1,13 @@
 package com.searchroom.repository.impl;
 
+import com.searchroom.mapper.RoomTypeMapper;
 import com.searchroom.model.RoomType;
 import com.searchroom.repository.RoomTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -27,16 +25,30 @@ public class RoomTypeRepositoryImpl implements RoomTypeRepository {
     public List<RoomType> getRoomTypeList() {
         String sql = "select * from room_types";
 
-        List<RoomType> roomTypes = jdbcTemplate.query(sql, new RowMapper<RoomType>() {
-            public RoomType mapRow(ResultSet resultSet, int i) throws SQLException {
-                RoomType type = new RoomType();
-                type.setId(resultSet.getInt("type_id"));
-                type.setDescription(resultSet.getString("description"));
-                return type;
-            }
-        });
+        List<RoomType> roomTypes = jdbcTemplate.query(sql, new RoomTypeMapper());
 
         return roomTypes;
+    }
+
+    public RoomType getRoomTypeById(int id) {
+        String sql = "select * from room_types where type_id = ?";
+
+        List<RoomType> result = jdbcTemplate.query(sql, new Object[] { id }, new RoomTypeMapper());
+
+        if (result.size() == 1) {
+            return result.get(0);
+        }
+        return null;
+    }
+
+    public void editRoomType(RoomType roomType) {
+        String sql = "update room_types set description = ? where type_id = ?";
+        jdbcTemplate.update(sql, new Object[] { roomType.getDescription(), roomType.getId() });
+    }
+
+    public void deleteRoomType(int id) {
+        String sql = "delete from room_types where type_id = ?";
+        jdbcTemplate.update(sql, new Object[] { id });
     }
 
 }
