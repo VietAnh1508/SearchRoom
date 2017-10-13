@@ -9,9 +9,9 @@
     </style>
 </head>
 <body>
-    <jsp:include page="../partials/_header.jsp"/>
-    <jsp:include page="../partials/_menu.jsp"/>
-    <jsp:include page="../partials/_admin_menu.jsp"/>
+    <jsp:include page="../../partials/_header.jsp"/>
+    <jsp:include page="../../partials/_menu.jsp"/>
+    <jsp:include page="../../partials/_admin_menu.jsp"/>
 
     <h1>Manage Room type</h1>
 
@@ -62,6 +62,6 @@
         </table>
     </c:if>
 
-    <jsp:include page="../partials/_footer.jsp"/>
+    <jsp:include page="../../partials/_footer.jsp"/>
 </body>
 </html>

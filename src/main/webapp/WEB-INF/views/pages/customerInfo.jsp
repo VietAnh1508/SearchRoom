@@ -11,8 +11,8 @@
     </style>
 </head>
 <body>
-    <jsp:include page="../partials/_header.jsp"/>
-    <jsp:include page="../partials/_menu.jsp"/>
+    <jsp:include page="../../partials/_header.jsp"/>
+    <jsp:include page="../../partials/_menu.jsp"/>
 
     <h1>Account's information</h1>
 
@@ -50,6 +50,6 @@
         </table>
     </form:form>
 
-    <jsp:include page="../partials/_footer.jsp"/>
+    <jsp:include page="../../partials/_footer.jsp"/>
 </body>
 </html>

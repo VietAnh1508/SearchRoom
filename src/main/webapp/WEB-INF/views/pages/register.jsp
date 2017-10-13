@@ -19,8 +19,8 @@
     </style>
 </head>
 <body>
-    <jsp:include page="../partials/_header.jsp"/>
-    <jsp:include page="../partials/_menu.jsp"/>
+    <jsp:include page="../../partials/_header.jsp"/>
+    <jsp:include page="../../partials/_menu.jsp"/>
 
     <h1>Create your account</h1>
 

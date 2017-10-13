@@ -5,13 +5,13 @@
     <title>Search room</title>
 </head>
 <body>
-    <jsp:include page="../partials/_header.jsp"/>
-    <jsp:include page="../partials/_menu.jsp"/>
+    <jsp:include page="../../partials/_header.jsp"/>
+    <jsp:include page="../../partials/_menu.jsp"/>
 
     <h1>Add new room</h1>
 
 
 
-    <jsp:include page="../partials/_footer.jsp"/>
+    <jsp:include page="../../partials/_footer.jsp"/>
 </body>
 </html>
