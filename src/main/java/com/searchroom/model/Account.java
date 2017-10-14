@@ -10,7 +10,6 @@ public class Account {
     @NotEmpty
     private String password;
 
-    @NotEmpty
     private String confirmPassword;
 
     private String role;

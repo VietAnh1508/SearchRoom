@@ -1,47 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<style>
-    .error {
-        color: red;
-        font-size: small;
-    }
-</style>
-<!--
-<form:form commandName="account" method="post">
-    <%--<form:errors path="*" cssClass="errorblock" element="div"/>--%>
-    <table align="center">
-        <tr>
-            <td><form:label path="username">Username</form:label></td>
-            <td><form:input path="username"/></td>
-            <td><form:errors path="username" cssClass="error"/></td>
-        </tr>
-        <tr>
-            <td><form:label path="password">Password</form:label></td>
-            <td><form:password path="password"/></td>
-            <td><form:errors path="password" cssClass="error"/></td>
-        </tr>
-        <tr>
-            <td>Confirm password</td>
-            <td><input type="password" name="confirm-password"/></td>
-            <td><p class="error">${confirmPassError}</td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <input type="submit" value="Create my account"/>
-                <a href="/">Cancel</a>
-            </td>
-        </tr>
-    </table>
-</form:form>
-<p>Already has an account? <a href="login">Log in</a></p>
--->
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<style>
-    .error {
-        color: red;
-        font-size: small;
-    }
-</style>
+
 <div class="main">
     <div class="shop_top">
         <div class="container">

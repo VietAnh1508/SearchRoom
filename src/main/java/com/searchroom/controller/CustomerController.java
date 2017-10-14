@@ -41,7 +41,6 @@ public class CustomerController {
     public ModelAndView addCustomer(@Valid @ModelAttribute("customer")Customer customer, BindingResult result) {
         ModelAndView mav = new ModelAndView("customerInfo");
         if (result.hasErrors()) {
-            System.out.println(customer.getUsername());
             mav.addObject("customer", customer);
             return mav;
         }

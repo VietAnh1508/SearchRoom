@@ -35,7 +35,7 @@ body a {
 
 .header-left {
     float: left;
-    width: 59%;
+    width: 70%;
 }
 
 .logo {
@@ -2462,4 +2462,8 @@ fieldset.input input[type="submit"]:hover {
         float: none;
         margin: 10px 0;
     }
+}
+.error {
+    color: red;
+    font-size: small;
 }

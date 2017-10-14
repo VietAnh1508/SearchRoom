@@ -15,6 +15,12 @@ public class AccountServiceImpl implements AccountService {
     public void validate(Object target, Errors errors) {
         Account account = (Account) target;
 
+        if ("".equals(account.getConfirmPassword()) || account.getConfirmPassword() == null) {
+            errors.rejectValue("confirmPassword",
+                    "emptyConfirm.account.password",
+                    "This field is required");
+        }
+
         if (!(account.getPassword()).equals(account.getConfirmPassword())) {
             errors.rejectValue("confirmPassword",
                     "matchingPassword.account.password",

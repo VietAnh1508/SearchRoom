@@ -1,10 +1,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<style>
-    .error {
-        color: red;
-        font-size: small;
-    }
-</style>
 <div class="main">
     <div class="shop_top">
         <div class="container">
