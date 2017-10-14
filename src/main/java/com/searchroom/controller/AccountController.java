@@ -3,7 +3,6 @@ package com.searchroom.controller;
 import com.searchroom.model.Account;
 import com.searchroom.repository.AccountRepository;
 import com.searchroom.service.AccountService;
-import com.searchroom.utils.MD5Library;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -30,18 +29,24 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ModelAndView registerSubmit(@Valid @ModelAttribute("account")Account account,
-                                       @RequestParam("confirm-password") String confirmPass, BindingResult result) {
-        accountService.validate(account, confirmPass, result); // fix this shit
+    public ModelAndView registerSubmit(@Valid @ModelAttribute("account")Account account, BindingResult result) {
+        accountService.validate(account, result);
         if (result.hasErrors()) {
             return new ModelAndView("register");
         }
 
-        String hashedPassword = MD5Library.md5(account.getPassword());
-        account.setPassword(hashedPassword);
+        Account alreadyAccount = accountRepository.getAccountByUsername(account.getUsername());
+        if (alreadyAccount != null) {
+            return new ModelAndView("register",
+                    "message", "This account is already existed, please choose another name");
+        }
+
+        account.setPassword(accountService.md5Hash(account.getPassword()));
         accountRepository.addAccount(account);
-        return new ModelAndView("register",
-                "notification", "Create account successfully");
+        ModelAndView mav = new ModelAndView("register");
+        mav.addObject("account", new Account());
+        mav.addObject("notification", "Create account successfully");
+        return mav;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -57,7 +62,7 @@ public class AccountController {
         }
 
         ModelAndView model;
-        String hashedPassword = MD5Library.md5(account.getPassword());
+        String hashedPassword = accountService.md5Hash(account.getPassword());
         account.setPassword(hashedPassword);
         Account loggedInAccount = accountRepository.getAccount(account);
 
@@ -90,7 +95,7 @@ public class AccountController {
         Cookie cookie = new Cookie("LOGGED_IN_USER", null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        return new ModelAndView("redirect:/index");
+        return new ModelAndView("redirect:/");
     }
 
 }

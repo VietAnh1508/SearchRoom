@@ -10,6 +10,9 @@ public class Account {
     @NotEmpty
     private String password;
 
+    @NotEmpty
+    private String confirmPassword;
+
     private String role;
 
     public Account() {
@@ -34,6 +37,14 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public String getRole() {

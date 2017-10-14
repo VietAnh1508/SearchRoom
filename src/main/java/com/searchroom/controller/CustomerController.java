@@ -25,7 +25,7 @@ public class CustomerController {
     public ModelAndView showInfo(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("customerInfo");
 
-        Account loginedUser = (Account) request.getSession().getAttribute("LOGINED_USER");
+        Account loginedUser = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
         Customer customer = customerRepository.getCustomerByUsername(loginedUser.getUsername());
         if (customer == null) {
             customer = new Customer();
