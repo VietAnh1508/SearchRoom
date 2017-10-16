@@ -9,6 +9,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
@@ -18,11 +19,13 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.searchroom")
-@PropertySource(value = { "classpath:ds/datasource-cfg.properties" })
+@PropertySource(value = {"classpath:datasource-cfg.properties"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Autowired
     private Environment env;
+
+    private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
 
     @Bean
     public TilesConfigurer tilesConfigurer() {
@@ -74,8 +77,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/post", "/admin");
+        registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/addRoom", "/admin");
         registry.addInterceptor(cookieInterceptor()).addPathPatterns("/*");
+    }
+
+    @Bean
+    public CommonsMultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(MAX_FILE_SIZE);
+        return multipartResolver;
     }
 
 }

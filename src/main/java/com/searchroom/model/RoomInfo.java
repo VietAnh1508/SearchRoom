@@ -5,20 +5,19 @@ import java.math.BigDecimal;
 public class RoomInfo {
 
     private int id;
-    private String area;
+    private String title;
+    private float area;
     private BigDecimal price;
     private String description;
     private boolean available;
     private int addressId;
     private int typeId;
 
-    public RoomInfo(int id, String area, BigDecimal price, String description,
-                    boolean available, int addressId, int typeId) {
-        this.id = id;
+    public RoomInfo(String title, float area, BigDecimal price, String description, int addressId, int typeId) {
+        this.title = title;
         this.area = area;
         this.price = price;
         this.description = description;
-        this.available = available;
         this.addressId = addressId;
         this.typeId = typeId;
     }
@@ -31,11 +30,19 @@ public class RoomInfo {
         this.id = id;
     }
 
-    public String getArea() {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public float getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(float area) {
         this.area = area;
     }
 

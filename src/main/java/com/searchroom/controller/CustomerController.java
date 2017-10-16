@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.sql.SQLException;
 
 @Controller
 public class CustomerController {
@@ -38,7 +37,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "customerInfo", method = RequestMethod.POST)
-    public ModelAndView addCustomer(@Valid @ModelAttribute("customer")Customer customer, BindingResult result) {
+    public ModelAndView addCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result) {
         ModelAndView mav = new ModelAndView("customerInfo");
         if (result.hasErrors()) {
             mav.addObject("customer", customer);
@@ -46,17 +45,12 @@ public class CustomerController {
         }
 
         Customer alreadyExistCustomer = customerRepository.getCustomerByUsername(customer.getUsername());
-        try {
-            if (alreadyExistCustomer == null) {
-                customerRepository.addCustomer(customer);
-            } else {
-                customerRepository.updateCustomer(customer);
-            }
-            mav.addObject("notification", "Update info successfully");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            mav.addObject("error", "Unexpected error, please try again");
+        if (alreadyExistCustomer == null) {
+            customerRepository.addCustomer(customer);
+        } else {
+            customerRepository.updateCustomer(customer);
         }
+        mav.addObject("notification", "Update info successfully");
 
         return mav;
     }

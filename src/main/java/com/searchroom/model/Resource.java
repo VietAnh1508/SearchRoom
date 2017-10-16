@@ -4,13 +4,10 @@ public class Resource {
 
     private int id;
     private String fileName;
-    private double fileSize;
     private int roomInfoId;
 
-    public Resource(int id, String fileName, double fileSize, int roomInfoId) {
-        this.id = id;
+    public Resource(String fileName, int roomInfoId) {
         this.fileName = fileName;
-        this.fileSize = fileSize;
         this.roomInfoId = roomInfoId;
     }
 
@@ -28,14 +25,6 @@ public class Resource {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
-    }
-
-    public double getFileSize() {
-        return fileSize;
-    }
-
-    public void setFileSize(double fileSize) {
-        this.fileSize = fileSize;
     }
 
     public int getRoomInfoId() {

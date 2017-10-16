@@ -9,14 +9,11 @@ public class RoomPost {
     private boolean isApproved;
     private Date approvedAt;
     private int approvedBy;
+    private int customerId;
     private int roomInfoId;
 
-    public RoomPost(int id, Date createdAt, boolean isApproved, Date approvedAt, int approvedBy, int roomInfoId) {
-        this.id = id;
-        this.createdAt = createdAt;
-        this.isApproved = isApproved;
-        this.approvedAt = approvedAt;
-        this.approvedBy = approvedBy;
+    public RoomPost(int customerId, int roomInfoId) {
+        this.customerId = customerId;
         this.roomInfoId = roomInfoId;
     }
 
@@ -58,6 +55,14 @@ public class RoomPost {
 
     public void setApprovedBy(int approvedBy) {
         this.approvedBy = approvedBy;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public int getRoomInfoId() {

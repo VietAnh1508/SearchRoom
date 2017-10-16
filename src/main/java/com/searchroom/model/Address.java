@@ -6,14 +6,21 @@ public class Address {
     private String latitude;
     private String longitude;
     private String address;
-    private int districtId;
 
-    public Address(int id, String latitude, String longitude, String address, int districtId) {
+    public Address() {
+    }
+
+    public Address(int id, String latitude, String longitude, String address) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
         this.address = address;
-        this.districtId = districtId;
+    }
+
+    public Address(String latitude, String longitude, String address) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.address = address;
     }
 
     public int getId() {
@@ -46,14 +53,6 @@ public class Address {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public int getDistrictId() {
-        return districtId;
-    }
-
-    public void setDistrictId(int districtId) {
-        this.districtId = districtId;
     }
 
 }

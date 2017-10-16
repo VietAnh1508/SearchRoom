@@ -15,6 +15,11 @@
         <put-attribute name="body" value="/WEB-INF/pages/home.jsp"/>
     </definition>
 
+    <definition name="post" extends="base-definition">
+        <put-attribute name="title" value="Add Room"/>
+        <put-attribute name="body" value="/WEB-INF/pages/post.jsp"/>
+    </definition>
+
     <definition name="register" extends="base-definition">
         <put-attribute name="title" value="Register"/>
         <put-attribute name="body" value="/WEB-INF/pages/register.jsp"/>
@@ -38,5 +43,10 @@
     <definition name="roomType" extends="base-definition">
         <put-attribute name="title" value="Admin"/>
         <put-attribute name="body" value="/WEB-INF/pages/roomType.jsp"/>
+    </definition>
+
+    <definition name="permissionError" extends="base-definition">
+        <put-attribute name="title" value="Error"/>
+        <put-attribute name="body" value="/WEB-INF/pages/permissionError.jsp"/>
     </definition>
 </tiles-definitions>

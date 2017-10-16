@@ -17,6 +17,13 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
             response.sendRedirect("/login");
             return false;
         }
+
+        if (request.getRequestURI().endsWith("/admin")) {
+            if (account.getRole().equals("CUSTOMER")) {
+                response.sendRedirect("permissionError");
+                return false;
+            }
+        }
         return true;
     }
 

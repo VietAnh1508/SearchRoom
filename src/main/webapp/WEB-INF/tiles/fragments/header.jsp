@@ -1,26 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%--<c:choose>--%>
-            <%--<c:when test="${LOGGED_IN_USER.username == null}">--%>
-                <%--<a href="/post">Add news</a> |--%>
-                <%--<a href="/login">Login</a> |--%>
-                <%--<a href="/register">Register</a>--%>
-            <%--</c:when>--%>
-            <%--<c:when test="${LOGGED_IN_USER.username != null}">--%>
-                <%--<c:choose>--%>
-                    <%--<c:when test="${LOGGED_IN_USER.role == \"ADMIN\"}">--%>
-                        <%--<a href="/admin">Web Manager</a> |--%>
-                    <%--</c:when>--%>
-                    <%--<c:when test="${LOGGED_IN_USER.role == \"CUSTOMER\"}">--%>
-                        <%--<a href="/post">Add news</a> |--%>
-                        <%--<a href="/customerInfo">Account's info</a> |--%>
-                    <%--</c:when>--%>
-                <%--</c:choose>--%>
-                <%--<a href="/logout">Log out</a>--%>
-            <%--</c:when>--%>
-        <%--</c:choose>--%>
-    <%--</div>--%>
-<%--</div>--%>
+
 <div class="header">
     <div class="container">
         <div class="row">
@@ -33,7 +13,7 @@
                         <a class="toggleMenu" href="#"><img src="/resources/images/nav.png" alt=""/></a>
                         <ul class="nav" id="nav">
                             <li><a href="/rooms">Rooms</a></li>
-                            <li><a href="/post">Post</a></li>
+                            <li><a href="/addRoom">Post</a></li>
                             <c:if test="${empty LOGGED_IN_USER.username}">
                                 <li><a href="/login">Login</a></li>
                                 <li><a href="/register">Register</a></li>
@@ -43,7 +23,6 @@
                                     <li><a href="/admin">Web Mamanger</a></li>
                                 </c:if>
                                 <c:if test="${LOGGED_IN_USER.role == \"CUSTOMER\"}">
-                                    <li><a href="/post">Add news</a></li>
                                     <li><a href="/customerInfo">Account's info</a></li>
                                 </c:if>
                                 <li><a href="#">Welcome ${LOGGED_IN_USER.username}</a></li>

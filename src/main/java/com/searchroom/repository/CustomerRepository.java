@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public interface CustomerRepository {
 
-    void addCustomer(Customer customer) throws SQLException;
+    void addCustomer(Customer customer);
     Customer getCustomerByUsername(String username);
-    void updateCustomer(Customer customer) throws SQLException;
+    void updateCustomer(Customer customer);
 
 }
