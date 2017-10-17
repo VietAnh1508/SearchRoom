@@ -4,18 +4,36 @@ import java.math.BigDecimal;
 
 public class PostNews {
 
+    private int postId;
     private String title;
     private String address;
     private BigDecimal price;
     private String roomType;
     private String image;
 
-    public PostNews(String title, String address, BigDecimal price, String roomType, String image) {
+    public PostNews(int postId, String title, String address, BigDecimal price, String image) {
+        this.postId = postId;
+        this.title = title;
+        this.address = address;
+        this.price = price;
+        this.image = image;
+    }
+
+    public PostNews(int postId, String title, String address, BigDecimal price, String roomType, String image) {
+        this.postId = postId;
         this.title = title;
         this.address = address;
         this.price = price;
         this.roomType = roomType;
         this.image = image;
+    }
+
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 
     public String getTitle() {

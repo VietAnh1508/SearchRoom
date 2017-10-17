@@ -44,7 +44,7 @@
         <div class="row">
             <c:forEach items="${postNewsList}" var="postNews">
                 <div class="col-md-3 top_box">
-                    <div class="view view-ninth"><a href="single.html">
+                    <div class="view view-ninth"><a href="/detail/${postNews.postId}">
                         <img src="/image/${postNews.image}" class="img-responsive" alt=""/>
                         <div class="mask mask-1"></div>
                         <div class="mask mask-2"></div>
@@ -53,7 +53,7 @@
                             <p>${postNews.address}</p>
                         </div>
                     </a></div>
-                    <h4 class="m_4"><a href="#">${postNews.title}</a></h4>
+                    <h4 class="m_4"><a href="/detail/${postNews.postId}">${postNews.title}</a></h4>
                     <p class="m_5">${postNews.roomType}</p>
                 </div>
             </c:forEach>

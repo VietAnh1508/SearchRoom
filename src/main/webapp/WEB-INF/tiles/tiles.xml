@@ -20,6 +20,11 @@
         <put-attribute name="body" value="/WEB-INF/pages/post.jsp"/>
     </definition>
 
+    <definition name="rooms" extends="base-definition">
+        <put-attribute name="title" value="Search Room"/>
+        <put-attribute name="body" value="/WEB-INF/pages/rooms.jsp"/>
+    </definition>
+
     <definition name="register" extends="base-definition">
         <put-attribute name="title" value="Register"/>
         <put-attribute name="body" value="/WEB-INF/pages/register.jsp"/>

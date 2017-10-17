@@ -1153,7 +1153,6 @@ li.youtube a span {
     margin: 0;
     display: none;
 }
-
 .dropdown .dropdown_content li {
     list-style: none;
     margin-left: 0;
@@ -1169,7 +1168,6 @@ li.youtube a span {
     border-bottom-color: #555;
     background: #444;
 }
-
 .dropdown .dropdown_content li a {
     display: block;
     padding: 2px 7px;
@@ -1179,34 +1177,27 @@ li.youtube a span {
     text-decoration: none !important;
     white-space: nowrap;
 }
-
 .dropdown .dropdown_content li:hover a {
     color: white;
     text-decoration: none !important;
 }
-
 .dropdown input[type="checkbox"]:checked ~ .dropdown_content {
     display: block
 }
-
 .dropdown input[type="checkbox"] {
     display: none
 }
-
 .copy {
     float: left;
 }
-
 .copy p {
     font-size: 0.8125em;
     font-weight: 600;
     color: #B8B6B6;
 }
-
 .copy p a {
     color: #fff;
 }
-
 .footer_bottom {
     padding: 0 2%;
     margin-top: 5%;
@@ -1234,7 +1225,6 @@ li.youtube a span {
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
 }
-
 .new-label {
     font-size: 0.85em;
     color: #FFF;
@@ -1249,11 +1239,9 @@ li.youtube a span {
     top: 0;
     z-index: 1;
 }
-
 .sale-box {
     left: 10px;
 }
-
 .sale-label {
     font-size: 0.85em;
     color: #FFF;
@@ -1267,64 +1255,52 @@ li.youtube a span {
     left: 0;
     top: 0;
 }
-
 .shop_box {
+    margin-bottom: 20px;
     position: relative;
 }
-
 .shop_desc {
     border: 1px solid #E0E0E0;
     padding: 5%;
 }
-
 .shop_desc h3 {
     margin-bottom: 5px;
 }
-
 .shop_desc h3 a {
     color: #333;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
 }
-
 .shop_desc h3 a:hover {
     color: #666;
 }
-
 .shop_desc p {
     color: #555;
     font-size: 0.8125em;
     line-height: 1.8em;
     margin-bottom: 10px;
 }
-
 span.reducedfrom {
     text-decoration: line-through;
     margin-right: 8%;
     color: #888;
 }
-
 span.actual {
-    color: #7DB122;
     font-size: 1em;
-    color: #000
+    color: #000;
 }
-
 ul.buttons {
     list-style: none;
     padding: 0;
     margin-top: 10px;
 }
-
 .cart {
     float: left;
 }
-
 .shop_btn {
     float: right;
 }
-
 .shop_btn a, .cart a {
     color: #000;
     font-size: 0.8125em;
@@ -1332,19 +1308,15 @@ ul.buttons {
     font-weight: 600;
     text-decoration: none;
 }
-
 .shop_btn a:hover {
     color: #E92546;
 }
-
 .cart a:hover {
     color: #FFAF02;
 }
-
 .shop_box-top {
     margin-bottom: 5%;
 }
-
 h3.m_2 {
     color: #555;
     margin-bottom: 20px;
@@ -1355,11 +1327,9 @@ h3.m_2 {
     padding: 0 1%;
     text-transform: uppercase;
 }
-
 h4.m_5 {
     margin-top: 7%;
 }
-
 h4.m_5 a {
     color: #555;
     font-size: 0.95em;
@@ -1367,26 +1337,21 @@ h4.m_5 a {
     letter-spacing: -1px;
     text-decoration: none;
 }
-
 h4.m_5 a:hover {
     color: #000;
 }
-
 p.m_6 {
     font-size: 0.85em;
     color: #555;
     line-height: 1.5em;
 }
-
 .team_box {
     margin-bottom: 5%;
 }
-
 ul.team_list {
     padding: 0;
     list-style: none;
 }
-
 ul.team_list h4 {
     color: #555;
     margin-bottom: 20px;
@@ -1397,40 +1362,33 @@ ul.team_list h4 {
     letter-spacing: -1px;
     text-transform: uppercase;
 }
-
 ul.team_list li {
     list-style-image: url(../images/marker.png);
     margin: 0 0px 20px 15px;
 }
-
 ul.team_list li a {
     font-size: 0.85em;
     color: #222;
     text-transform: uppercase;
     text-decoration: none;
 }
-
 ul.team_list li a:hover {
     color: #444;
 }
-
 ul.team_list li p {
     color: #888;
     font-size: 0.85em;
     line-height: 1.5em;
 }
-
 p.m_7 {
     color: #888;
     font-size: 0.85em;
     line-height: 1.5em;
     margin-bottom: 2%;
 }
-
 .img_section {
     position: relative;
 }
-
 .img_section_txt {
     position: absolute;
     width: 100%;
@@ -1447,46 +1405,37 @@ p.m_7 {
     -o-transition: all 0.6s ease;
     transition: all 0.6s ease;
 }
-
 .magnifier2:hover .img_section_txt {
     background: rgba(255, 0, 0, 0.36);
 }
-
 .ex_box {
     margin-bottom: 5%;
 }
-
 p.m_8 {
     color: #333;
     font-size: 0.85em;
     line-height: 1.8em;
     margin-bottom: 5%;
 }
-
 .address p {
     font-size: 0.85em;
     line-height: 2em;
 }
-
 .address p span:hover {
     text-decoration: none;
 }
-
 .address p span {
     text-decoration: underline;
     color: #555;
     cursor: pointer;
 }
-
 .contact {
     margin-top: 5%;
 }
-
 .to {
     float: left;
     width: 50%;
 }
-
 .to input[type="text"] {
     padding: 10px;
     width: 95%;
@@ -1500,16 +1449,13 @@ p.m_8 {
     outline: none;
     border: 1px solid #DFE0E2;
 }
-
 .to input[type="text"]:hover, .text input[type="text"], .text textarea:hover {
     border-color: #E25050;
 }
-
 .text {
     width: 50%;
     float: left;
 }
-
 .text input[type="text"], .text textarea {
     width: 100%;
     font-size: 0.85em;
@@ -1524,11 +1470,9 @@ p.m_8 {
     resize: none;
     border: 1px solid #DFE0E2;
 }
-
 .form-submit {
     float: right;
 }
-
 .form-submit input[type="submit"] {
     color: #FFF;
     font-family: 'Open Sans', sans-serif;
@@ -1548,23 +1492,19 @@ p.m_8 {
     cursor: pointer;
     outline: none;
 }
-
 .form-submit input[type="submit"]:hover {
     background: #333;
 }
-
 /*--single--*/
 .single_image {
     width: 36.5%;
     float: left;
     margin-right: 2.6%;
 }
-
 .single_right {
     width: 60.5%;
     float: left;
 }
-
 .single_right h3 {
     color: #222;
     font-size: 1.1em;
@@ -1572,7 +1512,6 @@ p.m_8 {
     margin-bottom: 10px;
     font-weight: 700;
 }
-
 .btn1-default1 {
     outline: none;
     border: 1px solid #CACACA;
@@ -1580,12 +1519,10 @@ p.m_8 {
     padding: 5px 10px;
     font-size: 0.85em;
 }
-
 .btn1-twitter:hover {
     color: #FFF;
     background-color: #00AAF0;
 }
-
 i.icon-twitter {
     height: 20px;
     width: 20px;
@@ -1593,11 +1530,9 @@ i.icon-twitter {
     float: left;
     margin-right: 2px;
 }
-
 .btn1-twitter:hover i {
     background: url(../images/img-sprite.png) no-repeat -260px -341px;
 }
-
 i.icon-facebook {
     height: 20px;
     width: 20px;
@@ -1605,16 +1540,13 @@ i.icon-facebook {
     float: left;
     margin-right: 2px;
 }
-
 .btn1-facebook:hover i {
     background: url(../images/img-sprite.png) no-repeat -292px -341px;
 }
-
 .btn1-facebook:hover {
     color: #FFF;
     background-color: #435F9F;
 }
-
 i.icon-google {
     height: 20px;
     width: 20px;
@@ -1622,16 +1554,13 @@ i.icon-google {
     float: left;
     margin-right: 2px;
 }
-
 .btn1-google:hover i {
     background: url(../images/img-sprite.png) no-repeat -321px -341px;
 }
-
 .btn1-google:hover {
     color: #FFF;
     background-color: #E04B34;
 }
-
 i.icon-pinterest {
     height: 20px;
     width: 20px;
@@ -1639,16 +1568,13 @@ i.icon-pinterest {
     float: left;
     margin-right: 2px;
 }
-
 .btn1-pinterest:hover i {
     background: url(../images/img-sprite.png) no-repeat -353px -342px;
 }
-
 .btn1-pinterest:hover {
     color: #FFF;
     background-color: #CE1F21;
 }
-
 .social_buttons h4 {
     color: #08080B;
     font-weight: 700;
@@ -1658,18 +1584,15 @@ i.icon-pinterest {
     text-transform: uppercase;
     margin-bottom: 5px;
 }
-
 p.m_10 {
     color: #333;
     font-size: 0.8125em;
     line-height: 1.8em;
     margin-bottom: 5%;
 }
-
 .btn_form {
     margin-bottom: 5%;
 }
-
 .btn_form form input[type="submit"] {
     font-family: 'Open Sans', sans-serif;
     cursor: pointer;
@@ -1686,32 +1609,26 @@ p.m_10 {
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-
 .btn_form form input[type="submit"]:hover {
     background: #FFAF02;
 }
-
 ul.add-to-links {
     margin-bottom: 3%;
     list-style: none;
     padding: 0;
 }
-
 ul.add-to-links img {
     vertical-align: middle;
 }
-
 ul.add-to-links a {
     color: #000;
     font-size: 0.85em;
 }
-
 ul.product-colors {
     list-style: none;
     padding: 0;
     margin-bottom: 5%;
 }
-
 .product-colors h3, .prosuct-qty span {
     color: #08080B;
     font-weight: 700;
@@ -1721,29 +1638,23 @@ ul.product-colors {
     text-transform: uppercase;
     margin-bottom: 5px;
 }
-
 .product-colors li {
     display: inline-block;
 }
-
 .product-colors li a span {
     width: 32px;
     height: 32px;
     display: inline-block;
 }
-
 .color1 span {
     background: #45BF55;
 }
-
 .color2 span {
     background: #0AA5E2;
 }
-
 .color3 span {
     background: #EE82EE;
 }
-
 .color4 span {
     background: orange;
 }
@@ -1751,15 +1662,12 @@ ul.product-colors {
 .color4 span {
     background: gray;
 }
-
 .color5 span {
     background: yellow;
 }
-
 .color6 span {
     background: red;
 }
-
 .box-info-product {
     background: #FFF;
     border: 1px solid #D2D0D0;
@@ -1767,19 +1675,16 @@ ul.product-colors {
     border-bottom: 1px solid #B0AFAF;
     padding: 7%;
 }
-
 p.price2 {
     color: #333;
     font-size: 2em;
     font-weight: 700;
     margin-bottom: 5%;
 }
-
 .prosuct-qty {
     margin-bottom: 1.5em;
     padding: 0;
 }
-
 .prosuct-qty select {
     font-family: 'Open Sans', sans-serif;
     border: 1px solid #EEE;
@@ -1787,12 +1692,10 @@ p.price2 {
     font-size: 1em;
     outline: none;
 }
-
 .prosuct-qty option {
     border: 1px solid #EEE;
     font-family: 'Open Sans', sans-serif;
 }
-
 .box-info-product .exclusive {
     border: none;
     outline: none;
@@ -1800,7 +1703,6 @@ p.price2 {
     display: block;
     background: #E25050;
 }
-
 .box-info-product .exclusive span {
     font-weight: 700;
     font-size: 20px;
@@ -1809,7 +1711,6 @@ p.price2 {
     color: #FFF;
     display: block !important;
 }
-
 .box-info-product .exclusive:after {
     border-left: 1px solid #fff;
     position: absolute;
@@ -1820,7 +1721,6 @@ p.price2 {
     width: 1px;
     z-index: 2;
 }
-
 .box-info-product .exclusive:before {
     background: url(../images/img-sprite.png) no-repeat -401px -308px;
     position: absolute;
@@ -1835,7 +1735,6 @@ p.price2 {
     width: 51px;
     text-align: center;
 }
-
 .box-info-product .exclusive:hover {
     background: #303030;
     background-position: 0 0;
@@ -1844,20 +1743,17 @@ p.price2 {
 .desc {
     margin-bottom: 5%;
 }
-
 .desc h4 {
     color: #333;
     font-size: 1.5em;
     margin-bottom: 1%;
     text-transform: uppercase;
 }
-
 .desc p {
     color: #555;
     font-size: 0.85em;
     line-height: 1.8em;
 }
-
 h4.m_11 {
     color: #333;
     font-size: 1.2em;
@@ -1865,7 +1761,6 @@ h4.m_11 {
     padding: 0 1%;
     margin-bottom: 2%;
 }
-
 h4.m_12 {
     color: #08080B;
     font-weight: 700;
@@ -1874,18 +1769,15 @@ h4.m_12 {
     display: block;
     text-transform: uppercase;
 }
-
 ul.options {
     list-style: none;
     padding: 0;
     margin-bottom: 7%;
 }
-
 ul.options li {
     margin: 0 1% 0 0;
     display: inline-block;
 }
-
 ul.options li a {
     color: #000;
     font-size: 0.8125em;
@@ -1893,24 +1785,20 @@ ul.options li a {
     border: 1px solid #DFDDDD;
     text-decoration: none;
 }
-
 ul.options li a:hover {
     border: 1px solid #FFAF02;
 }
-
 /*--checkout--*/
 p.cart {
     color: #555;
     font-size: 0.85em;
     line-height: 1.8em;
 }
-
 /*--login--*/
 .login-page {
     border-right: 1px solid #EEE;
     padding-right: 5%;
 }
-
 h4.title {
     color: #000;
     margin-bottom: 0.5em;
@@ -1923,13 +1811,11 @@ h4.title {
     border-bottom: 1px solid #ECECEC;
     padding-bottom: 13px;
 }
-
 .login-page p {
     color: #555;
     font-size: 0.85em;
     line-height: 1.8em;
 }
-
 .button1 input[type="submit"] {
     background: #000;
     border: none;
@@ -1941,11 +1827,9 @@ h4.title {
     outline: none;
     font-size: 1em;
 }
-
 .button1 input[type="submit"]:hover {
     background: #555;
 }
-
 #login-form label {
     color: #777;
     line-height: 2.8em;
@@ -1954,7 +1838,6 @@ h4.title {
     margin: 0;
     display: block;
 }
-
 input.inputbox, input.required, div.k2AccountPage input[type="text"] {
     background: #FFF;
     outline-color: #00BFF0;
@@ -1965,15 +1848,12 @@ input.inputbox, input.required, div.k2AccountPage input[type="text"] {
     font-family: 'Open Sans', sans-serif;
     font-size: 0.85em;
 }
-
 .remember {
     margin-top: 6%;
 }
-
 p#login-form-remember {
     float: left;
 }
-
 fieldset.input input[type="submit"] {
     background: #000;
     border: none;
@@ -1985,16 +1865,9 @@ fieldset.input input[type="submit"] {
     outline: none;
     font-size: 1em;
 }
-
 fieldset.input input[type="submit"]:hover {
     background: #555;
 }
-
-#login-form label a {
-    color: #777;
-    color: 0.85em;
-}
-
 #login-form label a:hover {
     color: #00BFF0;
 }
@@ -2003,7 +1876,6 @@ fieldset.input input[type="submit"]:hover {
     float: right;
     margin-top: 8%;
 }
-
 /*--register--*/
 .register-top-grid h3, .register-bottom-grid h3 {
     color: #000;
@@ -2011,13 +1883,11 @@ fieldset.input input[type="submit"]:hover {
     padding-bottom: 5px;
     margin: 0;
 }
-
 .register-top-grid div, .register-bottom-grid div {
     width: 48%;
     float: left;
     margin: 10px 0;
 }
-
 .register-top-grid span, .register-bottom-grid span {
     color: #555;
     font-size: 0.8125em;
@@ -2025,7 +1895,6 @@ fieldset.input input[type="submit"]:hover {
     display: block;
     text-transform: uppercase;
 }
-
 .register-top-grid input[type="text"], .register-bottom-grid input[type="text"], input[type="password"] {
     border: 1px solid #EEE;
     outline-color: #00BFF0;
@@ -2034,7 +1903,6 @@ fieldset.input input[type="submit"]:hover {
     padding: 0.5em;
     font-family: 'Open Sans', sans-serif;
 }
-
 .checkbox {
     margin-bottom: 4px;
     padding-left: 27px;
@@ -2042,22 +1910,18 @@ fieldset.input input[type="submit"]:hover {
     line-height: 27px;
     cursor: pointer;
 }
-
 .checkbox {
     float: left;
     margin-left: 8px;
     position: relative;
     font-weight: 600;
 }
-
 .checkbox:last-child {
     margin-bottom: 4px;
 }
-
 .checkbox:last-child {
     margin-bottom: 0;
 }
-
 .news-letter {
     color: #555;
     font-weight: 600;
@@ -2071,7 +1935,6 @@ fieldset.input input[type="submit"]:hover {
     -o-transition: 0.5s all;
     clear: both;
 }
-
 .checkbox i {
     position: absolute;
     bottom: 5px;
@@ -2082,7 +1945,6 @@ fieldset.input input[type="submit"]:hover {
     outline: none;
     border: 2px solid #DDD;
 }
-
 .checkbox input + i:after {
     content: '';
     background: url("../images/tick1.png") no-repeat 1px 2px;
@@ -2093,7 +1955,6 @@ fieldset.input input[type="submit"]:hover {
     font: normal 12px/16px FontAwesome;
     text-align: center;
 }
-
 .checkbox input + i:after {
     position: absolute;
     opacity: 0;
@@ -2103,20 +1964,16 @@ fieldset.input input[type="submit"]:hover {
     -moz-transition: opacity 0.1s;
     -webkit-transition: opacity 0.1s;
 }
-
 .checkbox input {
     position: absolute;
     left: -9999px;
 }
-
 .checkbox input:checked + i:after {
     opacity: 1;
 }
-
 .news-letter:hover {
     color: #00BFF0;
 }
-
 .register-grids form input[type="submit"] {
     background: #E25050;
     color: #FFF;
@@ -2133,11 +1990,9 @@ fieldset.input input[type="submit"]:hover {
     outline: none;
     text-transform: uppercase;
 }
-
 .register-grids form input[type="submit"]:hover {
     background: #555;
 }
-
 /*--responsive design--*/
 @media (max-width: 1366px) {
     .icon1 ul {
@@ -2145,12 +2000,10 @@ fieldset.input input[type="submit"]:hover {
         top: 64px;
         right: -98px;
     }
-
     .button a {
         margin-left: 71%;
     }
 }
-
 @media (max-width: 1280px) {
     .icon1 ul {
         width: 270px;
@@ -2158,177 +2011,138 @@ fieldset.input input[type="submit"]:hover {
         right: -55px;
     }
 }
-
 @media (max-width: 1024px) {
     .menu li a {
         padding: 5px 10px;
     }
-
     .header_right {
         width: 7%;
     }
-
     .icon1 ul {
         width: 250px;
         top: 59px;
         right: -25px;
     }
-
     .sub-icon1 ul li p {
         font-size: 0.8125em;
     }
-
     .button a {
         margin-left: 27%;
     }
-
     .nbs-flexisel-nav-left {
         left: 60px;
     }
-
     .nbs-flexisel-nav-right {
         right: 60px;
     }
-
     .content_bottom-text h3, h3.m_3, .content-top h2 {
         font-size: 2.5em;
     }
-
     .box-info-product .exclusive span {
         font-size: 17px;
         padding: 12px 11px 14px 63px;
     }
 }
-
 @media (max-width: 800px) {
     .menu {
         margin: 10px 0 0;
     }
-
     .header_right {
         width: 10%;
     }
-
     .icon1 ul {
         width: 250px;
         top: 59px;
         right: -15px;
     }
-
     .search {
         left: 65%;
         width: 27%;
         top: 12px;
     }
-
     .content_bottom-text h3, h3.m_3, .content-top h2 {
         font-size: 2em;
     }
-
     .nbs-flexisel-nav-left {
         left: 10px;
     }
-
     .nbs-flexisel-nav-right {
         right: 10px;
     }
-
     .view-ninth:hover .mask-1 {
         display: none;
     }
-
     .view-ninth:hover .mask-2 {
         display: none;
     }
-
     .view-ninth .mask-1, .view-ninth .mask-2 {
         display: none;
     }
-
     .view-ninth:hover .content {
         height: 53%;
         width: 41%;
     }
-
     .top_box {
         margin-bottom: 20px;
     }
-
     h4.m_4, h4.m_5 {
         margin-top: 10px;
     }
-
     ul.footer_box h4, ul.team_list h4 {
         margin-bottom: 10px;
     }
-
     ul.footer_box {
         margin-bottom: 20px;
     }
-
     .footer_search, .footer_bottom {
         margin-top: 0;
     }
-
     ul.social {
         margin-top: 20px;
     }
-
     .team1 {
         margin-bottom: 20px;
     }
-
     .team_bottom {
         margin-bottom: 20px;
     }
-
     .team_box {
         margin-bottom: 0;
     }
-
     .shop_box {
         margin-bottom: 20px;
     }
-
     .shop_desc {
         padding: 10px;
     }
-
     .etalage_zoom_area div {
         width: 350px !important;
         height: 350px !important;
     }
-
     .box-info-product {
         padding: 20px;
         margin-bottom: 20px;
     }
-
     .prosuct-qty select {
         padding: 2% 30%;
     }
-
     .desc {
         margin: 20px 0;
     }
-
     .product1 {
         margin-bottom: 20px;
     }
 }
-
 @media (max-width: 768px) {
     .login-page {
         border-right: none;
         padding-right: 0;
     }
 }
-
 @media (max-width: 640px) {
     .header_right {
         width: 11%;
     }
-
     .etalage_zoom_area div {
         width: 250px !important;
         height: 250px !important;

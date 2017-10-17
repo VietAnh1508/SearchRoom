@@ -38,6 +38,14 @@ public class RoomController {
     @Autowired
     private RoomService roomService;
 
+    @Autowired
+    private PostNewsRepository postNewsRepository;
+
+    @RequestMapping(value = "/rooms")
+    public ModelAndView showRoomsPage() {
+        return new ModelAndView("rooms", "postList", postNewsRepository.getPostForRoomsPage());
+    }
+
     @RequestMapping(value = "/addRoom", method = RequestMethod.GET)
     public ModelAndView showPostPage() {
         return new ModelAndView("post", "roomTypeList", roomTypeRepository.getRoomTypeList());
