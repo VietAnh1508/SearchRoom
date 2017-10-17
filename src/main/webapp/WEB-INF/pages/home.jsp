@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="banner">
     <!-- start slider -->
@@ -41,21 +42,21 @@
         <h3 class="m_3">Newest</h3>
         <div class="close_but"><i class="close1"> </i></div>
         <div class="row">
-            <% for (int i = 0; i < 4; ++i) { %>
+            <c:forEach items="${postNewsList}" var="postNews">
                 <div class="col-md-3 top_box">
                     <div class="view view-ninth"><a href="single.html">
-                        <img src="/resources/images/pic1.jpg" class="img-responsive" alt=""/>
+                        <img src="/image/${postNews.image}" class="img-responsive" alt=""/>
                         <div class="mask mask-1"></div>
                         <div class="mask mask-2"></div>
                         <div class="content">
-                            <h2>Hover Style #9</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                            <h2>${postNews.price}</h2>
+                            <p>${postNews.address}</p>
                         </div>
                     </a></div>
-                    <h4 class="m_4"><a href="#">nostrud exerci ullamcorper</a></h4>
-                    <p class="m_5">claritatem insitam</p>
+                    <h4 class="m_4"><a href="#">${postNews.title}</a></h4>
+                    <p class="m_5">${postNews.roomType}</p>
                 </div>
-            <% } %>
+            </c:forEach>
         </div>
     </div>
 </div>

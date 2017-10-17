@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.Iterator;
 
@@ -66,6 +68,12 @@ public class RoomServiceImpl implements RoomService {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public byte[] getImage(String imageName) throws IOException {
+        createUserImagesDirIfNeeded();
+        File serverFile = new File(USER_IMAGES_DIR_ABSOLUTE_PATH + imageName + ".png");
+        return Files.readAllBytes(serverFile.toPath());
     }
 
 }
