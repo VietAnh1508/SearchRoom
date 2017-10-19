@@ -1,12 +1,12 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="banner">
     <!-- start slider -->
     <div id="fwslider">
         <div class="slider_container">
             <div class="slide">
                 <!-- Slide image -->
-                <img src="/resources/images/slider1.jpg" class="img-responsive" alt=""/>
+                <img src="<c:url value="/resources/images/slider1.jpg"/>" class="img-responsive"/>
                 <!-- /Slide image -->
                 <!-- Texts container -->
                 <div class="slide_content">
@@ -21,7 +21,7 @@
             </div>
             <!-- /Duplicate to create more slides -->
             <div class="slide">
-                <img src="/resources/images/slider2.jpg" class="img-responsive" alt=""/>
+                <img src="<c:url value="/resources/images/slider2.jpg"/>" class="img-responsive"/>
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <h1 class="title">Run Over<br>Everything</h1>

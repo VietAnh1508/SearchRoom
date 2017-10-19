@@ -38,6 +38,11 @@ body a {
     width: 70%;
 }
 
+.header-menu:hover {
+    text-decoration: none !important;
+    color: #000 !important;
+}
+
 .logo {
     float: left;
     margin-right: 2%;
@@ -72,6 +77,7 @@ body a {
 .menu li a:hover, .menu li.active a {
     background: #fff;
     color: #000;
+    text-decoration: none;
 }
 
 #nav .current a {
@@ -83,8 +89,7 @@ body a {
     padding: 4px 5px 0px 5px;
 }
 
-.nav:before,
-.nav:after {
+.nav:before, .nav:after {
     content: " ";
     display: table;
 }
@@ -179,8 +184,8 @@ body a {
 .sb-search {
     position: absolute;
     top: 7px;
-    right: 0px;
-    width: 0%;
+    right: 0;
+    width: 0;
     min-width: 45px;
     height: 45px;
     float: right;
@@ -286,7 +291,7 @@ ul.icon1 {
     zoom: 1;
     list-style: none;
     padding: 0;
-    margin-left: 25%;
+    /*margin-left: 25%;*/
 }
 
 .icon1 li {
@@ -429,6 +434,10 @@ li.list_desc h4 a {
 
 li.list_desc h4 a:hover {
     color: red;
+}
+
+.list ul li {
+    padding: 2px;
 }
 
 .c1 {
