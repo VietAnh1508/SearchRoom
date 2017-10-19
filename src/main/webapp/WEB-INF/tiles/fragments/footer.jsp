@@ -3,14 +3,6 @@
         <div class="row">
             <div class="col-md-3">
                 <ul class="footer_box">
-                    <h4>Products</h4>
-                    <li><a href="#">Mens</a></li>
-                    <li><a href="#">Womens</a></li>
-                    <li><a href="#">Youth</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <ul class="footer_box">
                     <h4>About</h4>
                     <li><a href="#">Careers and internships</a></li>
                     <li><a href="#">Sponserships</a></li>

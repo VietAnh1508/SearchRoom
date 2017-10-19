@@ -23,6 +23,7 @@
                                     <li><a href="/admin">Web Mamanger</a></li>
                                 </c:if>
                                 <c:if test="${LOGGED_IN_USER.role == \"CUSTOMER\"}">
+                                    <li><a href="/customerPost">My post</a></li>
                                     <li><a href="/customerInfo">Account's info</a></li>
                                 </c:if>
                                 <li><a href="#">Welcome ${LOGGED_IN_USER.username}</a></li>
@@ -56,8 +57,8 @@
                     <ul class="icon1 sub-icon1 profile_img">
                         <li><a class="active-icon c1" href="#"> </a>
                             <ul class="sub-icon1 list">
+
                                 <div class="product_control_buttons">
-                                    <a href="#"><img src="/resources/images/edit.png" alt=""/></a>
                                     <a href="#"><img src="/resources/images/close_edit.png" alt=""/></a>
                                 </div>
                                 <div class="clear"></div>
@@ -66,9 +67,22 @@
                                     <h4><a href="#">velit esse molestie</a></h4>
                                     <span class="actual">1 x $12.00</span>
                                 </li>
+                                <div class="clear"></div>
+
+                                <div class="product_control_buttons">
+                                    <a href="#"><img src="/resources/images/close_edit.png" alt=""/></a>
+                                </div>
+                                <div class="clear"></div>
+                                <li class="list_img"><img src="/resources/images/1.jpg" alt=""/></li>
+                                <li class="list_desc">
+                                    <h4><a href="#">velit esse molestie</a></h4>
+                                    <span class="actual">1 x $12.00</span>
+                                </li>
+
                                 <div class="login_buttons">
-                                    <div class="check_button"><a href="checkout.html">Check out</a></div>
-                                    <div class="login_button"><a href="login.html">Login</a></div>
+                                    <div class="check_button">
+                                        <a href="/compare">Compare</a>
+                                    </div>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="clear"></div>

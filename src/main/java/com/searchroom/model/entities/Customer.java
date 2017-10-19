@@ -1,4 +1,4 @@
-package com.searchroom.model;
+package com.searchroom.model.entities;
 
 import com.searchroom.model.validator.Phone;
 

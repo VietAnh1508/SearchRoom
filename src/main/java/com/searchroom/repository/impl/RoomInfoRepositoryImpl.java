@@ -1,6 +1,6 @@
 package com.searchroom.repository.impl;
 
-import com.searchroom.model.RoomInfo;
+import com.searchroom.model.entities.RoomInfo;
 import com.searchroom.repository.RoomInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

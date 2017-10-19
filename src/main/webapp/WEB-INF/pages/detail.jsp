@@ -1,7 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!----details-product-slider--->
 <!-- Include the Etalage files -->
-<link rel="stylesheet" href="/resources/css/etalage.css">
-<script src="/resources/js/jquery.etalage.min.js"></script>
+<link rel="stylesheet" href="<c:url value="/resources/css/etalage.css"/>"/>
+<script src="<c:url value="/resources/js/jquery.etalage.min.js"/>"></script>
 <!-- Include the Etalage files -->
 <script>
     jQuery(document).ready(function($){
@@ -11,7 +12,8 @@
 
             show_hint: true,
             click_callback: function(image_anchor, instance_id){
-                alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+                alert('Callback example:\nYou clicked on an image with the anchor: "'
+                    +image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
             }
         });
         // This is for the dropdown list example:
@@ -20,6 +22,72 @@
         });
 
     });
+</script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBzTslru94FNhjKFbamfBIDgbjFZmYPgxc&sensor=false"></script>
+<script type="text/javascript">
+    var gmap = new google.maps.LatLng(${postDetail.latitude}, ${postDetail.longitude});
+    var marker;
+    function initialize()
+    {
+        var mapProp = {
+            center: new google.maps.LatLng(${postDetail.latitude}, ${postDetail.longitude}),
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+        var styles = [{
+                featureType: 'road.arterial',
+                elementType: 'all',
+                stylers: [
+                    { hue: '#fff' },
+                    { saturation: 100 },
+                    { lightness: -48 },
+                    { visibility: 'on' }
+                ]
+            }, {
+                featureType: 'road',
+                elementType: 'all',
+                stylers: [
+                ]
+            }, {
+                featureType: 'water',
+                elementType: 'geometry.fill',
+                stylers: [
+                    { color: '#adc9b8' }
+                ]
+            }, {
+                featureType: 'landscape.natural',
+                elementType: 'all',
+                stylers: [
+                    { hue: '#809f80' },
+                    { lightness: -35 }
+                ]
+            }
+        ];
+
+        var styledMapType = new google.maps.StyledMapType(styles);
+        map.mapTypes.set('Styled', styledMapType);
+
+        marker = new google.maps.Marker({
+            map:map,
+            draggable:true,
+            animation: google.maps.Animation.DROP,
+            position: gmap
+        });
+        google.maps.event.addListener(marker, 'click', toggleBounce);
+    }
+
+    function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <!----//details-product-slider--->
 <div class="main">
@@ -30,7 +98,7 @@
                     <div class="single_image">
                         <ul id="etalage">
                             <li>
-                                <a href="optionallink.html">
+                                <a href="#">
                                     <img class="etalage_thumb_image" src="/image/${postDetail.fileName}" />
                                     <img class="etalage_source_image" src="/image/${postDetail.fileName}" />
                                 </a>
@@ -59,9 +127,11 @@
                         <p class="price2">${postDetail.price} VND per month</p>
                         <ul class="prosuct-qty">
                         </ul>
-                        <button type="submit" name="Submit" class="exclusive">
-                            <span>Save</span>
-                        </button>
+                        <a href="/saveRoom/${postDetail.postId}">
+                            <button type="submit" name="Submit" class="exclusive">
+                                <span>Save</span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -71,13 +141,7 @@
             </div>
             <div class="row">
                 <h4 class="m_11">Map</h4>
-                <div class="map">
-                    <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe>
-                    <br>
-                    <small>
-                        <a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px"></a>
-                    </small>
-                </div>
+                <div id="map" style="width: 100%; height: 300px;">Google Map</div>
             </div>
         </div>
     </div>

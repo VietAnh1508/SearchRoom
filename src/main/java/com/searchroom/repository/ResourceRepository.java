@@ -1,6 +1,6 @@
 package com.searchroom.repository;
 
-import com.searchroom.model.Resource;
+import com.searchroom.model.entities.Resource;
 
 public interface ResourceRepository {
 

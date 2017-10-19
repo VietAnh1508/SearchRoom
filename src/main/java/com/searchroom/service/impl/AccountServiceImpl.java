@@ -1,6 +1,6 @@
 package com.searchroom.service.impl;
 
-import com.searchroom.model.Account;
+import com.searchroom.model.entities.Account;
 import com.searchroom.service.AccountService;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;

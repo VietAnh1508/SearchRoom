@@ -1,6 +1,6 @@
 package com.searchroom.interceptor;
 
-import com.searchroom.model.Account;
+import com.searchroom.model.entities.Account;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 

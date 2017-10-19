@@ -1,6 +1,6 @@
 package com.searchroom.repository;
 
-import com.searchroom.model.RoomPost;
+import com.searchroom.model.entities.RoomPost;
 
 public interface RoomPostRepository {
 

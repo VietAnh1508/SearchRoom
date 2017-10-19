@@ -1,8 +1,7 @@
 package com.searchroom.repository;
 
-import com.searchroom.model.PostNews;
+import com.searchroom.model.join.PostNews;
 
-import javax.ws.rs.POST;
 import java.util.List;
 
 public interface PostNewsRepository {

@@ -1,10 +1,10 @@
-package com.searchroom.model;
+package com.searchroom.model.join;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class PostDetail {
 
+    private int postId;
     private String title;
     private float area;
     private BigDecimal price;
@@ -18,8 +18,10 @@ public class PostDetail {
     private String phoneNumber;
     private String fileName;
 
-    public PostDetail(String title, float area, BigDecimal price, String description, String address, String latitude,
-                      String longitude, String createdAt, String fullName, String email, String phoneNumber, String fileName) {
+    public PostDetail(int postId, String title, float area, BigDecimal price, String description, String address,
+                      String latitude, String longitude, String createdAt,
+                      String fullName, String email, String phoneNumber, String fileName) {
+        this.postId = postId;
         this.title = title;
         this.area = area;
         this.price = price;
@@ -32,6 +34,14 @@ public class PostDetail {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.fileName = fileName;
+    }
+
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 
     public String getTitle() {

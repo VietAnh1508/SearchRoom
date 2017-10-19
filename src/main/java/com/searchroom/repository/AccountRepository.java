@@ -1,6 +1,6 @@
 package com.searchroom.repository;
 
-import com.searchroom.model.Account;
+import com.searchroom.model.entities.Account;
 
 public interface AccountRepository {
 

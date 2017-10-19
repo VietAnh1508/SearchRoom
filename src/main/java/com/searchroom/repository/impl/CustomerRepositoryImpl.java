@@ -1,6 +1,6 @@
 package com.searchroom.repository.impl;
 
-import com.searchroom.model.Customer;
+import com.searchroom.model.entities.Customer;
 import com.searchroom.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

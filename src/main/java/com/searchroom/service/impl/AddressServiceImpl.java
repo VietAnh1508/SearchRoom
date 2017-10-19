@@ -1,6 +1,6 @@
 package com.searchroom.service.impl;
 
-import com.searchroom.model.Address;
+import com.searchroom.model.entities.Address;
 import com.searchroom.service.AddressService;
 import com.searchroom.utils.geolocation.AddressConverter;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,13 @@ public class AddressServiceImpl implements AddressService {
     public Address getLatLngByAddress(String address) throws Exception {
         Address addr = new Address();
         addr.setAddress(address);
-        String[] latlong = AddressConverter.getLatLongPositions(address);
+        String[] latlong = new String[2];
+
+        try {
+            latlong = AddressConverter.getLatLongPositions(address);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (latlong == null) {
             addr.setLatitude("0");

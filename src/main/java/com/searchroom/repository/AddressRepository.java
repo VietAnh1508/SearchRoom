@@ -1,6 +1,6 @@
 package com.searchroom.repository;
 
-import com.searchroom.model.Address;
+import com.searchroom.model.entities.Address;
 
 public interface AddressRepository {
 

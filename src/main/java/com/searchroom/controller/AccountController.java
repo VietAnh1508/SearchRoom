@@ -1,6 +1,6 @@
 package com.searchroom.controller;
 
-import com.searchroom.model.Account;
+import com.searchroom.model.entities.Account;
 import com.searchroom.repository.AccountRepository;
 import com.searchroom.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.searchroom.mapper;
 
-import com.searchroom.model.PostNews;
+import com.searchroom.model.join.PostNews;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.math.BigDecimal;

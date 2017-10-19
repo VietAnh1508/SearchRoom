@@ -1,6 +1,6 @@
 package com.searchroom.controller;
 
-import com.searchroom.model.*;
+import com.searchroom.model.entities.*;
 import com.searchroom.repository.*;
 import com.searchroom.service.AddressService;
 import com.searchroom.service.RoomService;

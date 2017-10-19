@@ -1,6 +1,6 @@
 package com.searchroom.repository.impl;
 
-import com.searchroom.model.RoomPost;
+import com.searchroom.model.entities.RoomPost;
 import com.searchroom.repository.RoomPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

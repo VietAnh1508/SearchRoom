@@ -1,4 +1,4 @@
-package com.searchroom.model;
+package com.searchroom.model.join;
 
 import java.math.BigDecimal;
 

@@ -1,8 +1,7 @@
 package com.searchroom.interceptor;
 
-import com.searchroom.model.Account;
+import com.searchroom.model.entities.Account;
 import com.searchroom.repository.AccountRepository;
-import com.searchroom.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;

@@ -1,4 +1,4 @@
-package com.searchroom.model;
+package com.searchroom.model.entities;
 
 import javax.validation.constraints.NotEmpty;
 

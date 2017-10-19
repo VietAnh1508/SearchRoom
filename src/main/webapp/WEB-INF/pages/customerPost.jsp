@@ -1,0 +1,1 @@
+<h1>Customer's posts</h1>

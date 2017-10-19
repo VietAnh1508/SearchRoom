@@ -1,8 +1,6 @@
 package com.searchroom.repository;
 
-import com.searchroom.model.Customer;
-
-import java.sql.SQLException;
+import com.searchroom.model.entities.Customer;
 
 public interface CustomerRepository {
 

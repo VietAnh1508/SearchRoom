@@ -1,7 +1,7 @@
 package com.searchroom.repository.impl;
 
 import com.searchroom.mapper.PostNewsMapper;
-import com.searchroom.model.PostNews;
+import com.searchroom.model.join.PostNews;
 import com.searchroom.repository.PostNewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

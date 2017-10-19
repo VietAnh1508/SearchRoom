@@ -1,6 +1,6 @@
 package com.searchroom.repository;
 
-import com.searchroom.model.RoomType;
+import com.searchroom.model.entities.RoomType;
 
 import java.util.List;
 

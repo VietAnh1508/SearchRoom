@@ -1,7 +1,7 @@
 package com.searchroom.controller;
 
-import com.searchroom.model.Account;
-import com.searchroom.model.Customer;
+import com.searchroom.model.entities.Account;
+import com.searchroom.model.entities.Customer;
 import com.searchroom.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

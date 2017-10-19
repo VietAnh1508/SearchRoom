@@ -1,6 +1,5 @@
 package com.searchroom.config;
 
-import com.searchroom.controller.PermissionErrorController;
 import com.searchroom.interceptor.AuthenticationInterceptor;
 import com.searchroom.interceptor.CookieInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +11,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 import javax.sql.DataSource;
-import java.util.Properties;
 
 @Configuration
 @EnableWebMvc

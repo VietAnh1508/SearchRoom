@@ -1,6 +1,6 @@
 package com.searchroom.repository;
 
-import com.searchroom.model.RoomInfo;
+import com.searchroom.model.entities.RoomInfo;
 
 public interface RoomInfoRepository {
 

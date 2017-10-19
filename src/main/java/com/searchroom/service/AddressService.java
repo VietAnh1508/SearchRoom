@@ -1,6 +1,6 @@
 package com.searchroom.service;
 
-import com.searchroom.model.Address;
+import com.searchroom.model.entities.Address;
 
 public interface AddressService {
 

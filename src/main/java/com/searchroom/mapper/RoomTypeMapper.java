@@ -1,6 +1,6 @@
 package com.searchroom.mapper;
 
-import com.searchroom.model.RoomType;
+import com.searchroom.model.entities.RoomType;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

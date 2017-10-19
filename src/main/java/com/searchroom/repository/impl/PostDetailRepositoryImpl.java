@@ -1,6 +1,6 @@
 package com.searchroom.repository.impl;
 
-import com.searchroom.model.PostDetail;
+import com.searchroom.model.join.PostDetail;
 import com.searchroom.repository.PostDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -56,14 +56,19 @@ public class PostDetailRepositoryImpl implements PostDetailRepository {
                         = LocalDateTime.parse(createdAt, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S"));
                 String formattedDate = dateTime.format(DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy"));
 
-                return new PostDetail(title, area, price, description, address, latitude, longitude, formattedDate,
-                        fullName, email, phoneNumber, fileName);
+                return new PostDetail(postId, title, area, price, description, address, latitude, longitude,
+                        formattedDate, fullName, email, phoneNumber, fileName);
             }
         });
 
         if (detailList.size() > 0) {
             return detailList.get(0);
         }
+        return null;
+    }
+
+    @Override
+    public PostDetail getPostToSave(int postId) {
         return null;
     }
 

@@ -1,6 +1,6 @@
 package com.searchroom.controller;
 
-import com.searchroom.model.RoomType;
+import com.searchroom.model.entities.RoomType;
 import com.searchroom.repository.RoomTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

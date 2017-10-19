@@ -22,24 +22,20 @@ public class AddressConverter {
         HttpURLConnection httpConnection = (HttpURLConnection)url.openConnection();
         httpConnection.connect();
         responseCode = httpConnection.getResponseCode();
-        if (responseCode == 200)
-        {
+        if (responseCode == 200) {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();;
             Document document = builder.parse(httpConnection.getInputStream());
             XPathFactory xPathfactory = XPathFactory.newInstance();
             XPath xpath = xPathfactory.newXPath();
             XPathExpression expr = xpath.compile("/GeocodeResponse/status");
             String status = (String)expr.evaluate(document, XPathConstants.STRING);
-            if (status.equals("OK"))
-            {
+            if (status.equals("OK")) {
                 expr = xpath.compile("//geometry/location/lat");
                 String latitude = (String)expr.evaluate(document, XPathConstants.STRING);
                 expr = xpath.compile("//geometry/location/lng");
                 String longitude = (String)expr.evaluate(document, XPathConstants.STRING);
                 return new String[] {latitude, longitude};
-            }
-            else
-            {
+            } else {
                 throw new Exception("Error from the API - response status: "+ status);
             }
         }

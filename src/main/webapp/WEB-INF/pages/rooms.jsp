@@ -15,7 +15,7 @@
                                 <p>${post.address}</p>
                                 <span class="actual">${post.price} VND</span><br>
                                 <ul class="buttons">
-                                    <li class="cart"><a href="#">Add To Cart</a></li>
+                                    <li class="cart"><a href="/save/${post.postId}">Save</a></li>
                                     <li class="shop_btn"><a href="/detail/${post.postId}">Read More</a></li>
                                     <div class="clear"></div>
                                 </ul>

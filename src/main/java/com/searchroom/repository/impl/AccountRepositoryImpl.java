@@ -1,7 +1,7 @@
 package com.searchroom.repository.impl;
 
 import com.searchroom.mapper.AccountMapper;
-import com.searchroom.model.Account;
+import com.searchroom.model.entities.Account;
 import com.searchroom.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
