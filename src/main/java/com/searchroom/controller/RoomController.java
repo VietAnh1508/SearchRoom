@@ -106,8 +106,16 @@ public class RoomController {
         return mav;
     }
 
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public ModelAndView editRoomPost(@RequestParam("post-id") int postId) {
+        ModelAndView mav = new ModelAndView("post");
+        mav.addObject("newPost", new NewPost());
+        mav.addObject("roomTypeList", roomTypeRepository.getRoomTypeList());
+        return mav;
+    }
+
     @RequestMapping(value = "/delete")
-    public String editRoom(@RequestParam("post-id") int postId, HttpServletRequest request,
+    public String deleteRoomPost(@RequestParam("post-id") int postId, HttpServletRequest request,
                                  final RedirectAttributes redirectAttributes) {
         int infoId = roomPostRepository.getInfoId(postId);
         int resourceId = resourceRepository.getId(infoId);

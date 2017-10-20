@@ -8,6 +8,7 @@
                 <div class="register-top-grid">
                     <h3>PERSONAL INFORMATION</h3>
                     <p style="font-weight: bold; color: #ff2723">${notification}</p>
+                    <form:hidden path="id"/>
                     <div>
                         <span><form:label path="username">Username*</form:label></span>
                         <form:input path="username" readonly="true"/>
