@@ -56,17 +56,14 @@ public class RoomServiceImpl implements RoomService {
         }
     }
 
-    private boolean createImage(String name, MultipartFile file) {
+    private void createImage(String name, MultipartFile file) {
         try {
             File image = new File(USER_IMAGES_DIR_ABSOLUTE_PATH + name);
             BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(image));
             stream.write(file.getBytes());
             stream.close();
-
-            return true;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
     }
 

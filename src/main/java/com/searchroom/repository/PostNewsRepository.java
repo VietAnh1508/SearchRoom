@@ -8,5 +8,6 @@ public interface PostNewsRepository {
 
     List<PostNews> getNewestPost();
     List<PostNews> getPostForRoomsPage();
+    List<PostNews> getCustomerPosts(int customerId);
 
 }

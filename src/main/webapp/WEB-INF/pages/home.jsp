@@ -45,7 +45,7 @@
             <c:forEach items="${postNewsList}" var="postNews">
                 <div class="col-md-3 top_box">
                     <div class="view view-ninth"><a href="/detail/${postNews.postId}">
-                        <img src="/image/${postNews.image}" class="img-responsive" alt=""/>
+                        <img src="/image/${postNews.image}" class="img-responsive" style="height: 196px;"/>
                         <div class="mask mask-1"></div>
                         <div class="mask mask-2"></div>
                         <div class="content">

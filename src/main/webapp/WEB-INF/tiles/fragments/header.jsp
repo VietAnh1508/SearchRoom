@@ -24,7 +24,7 @@
                                             <li><a href="<c:url value="/admin"/>" style="color:black;">Web Manager</a></li>
                                         </c:if>
                                         <c:if test="${LOGGED_IN_USER.role == \"CUSTOMER\"}">
-                                            <li><a href="<c:url value="/customerPost"/>" style="color:black;">My post</a></li>
+                                            <li><a href="<c:url value="/customerPost/${LOGGED_IN_USER.username}"/>" style="color:black;">My post</a></li>
                                             <li><a href="<c:url value="/customerInfo"/>" style="color:black;">Account's info</a></li>
                                         </c:if>
                                         <li><a href="<c:url value="/logout"/>" style="color:black;">Log out</a></li>

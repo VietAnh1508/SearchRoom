@@ -6,9 +6,9 @@
                 <c:forEach items="${postList}" var="post">
                     <div class="col-md-3 shop_box">
                         <a href="/detail/${post.postId}">
-                            <img src="/image/${post.image}" class="img-responsive" alt=""/>
+                            <img src="/image/${post.image}" class="img-responsive" style="height: 196px;"/>
                             <span class="new-box">
-						        <span class="new-label">New</span>
+						        <span class="new-label">Approved</span>
 					        </span>
                             <div class="shop_desc">
                                 <h3><a href="/detail/${post.postId}">${post.title}</a></h3>

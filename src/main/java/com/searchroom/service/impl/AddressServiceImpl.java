@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AddressServiceImpl implements AddressService {
 
-    public Address getLatLngByAddress(String address) throws Exception {
+    public Address getLatLngByAddress(String address) {
         Address addr = new Address();
         addr.setAddress(address);
         String[] latlong = new String[2];

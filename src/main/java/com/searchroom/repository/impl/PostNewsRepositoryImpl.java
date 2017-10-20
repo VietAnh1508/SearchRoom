@@ -32,7 +32,16 @@ public class PostNewsRepositoryImpl implements PostNewsRepository {
                 + " on t.type_id = i.type_id"
                 + " join resources r"
                 + " on r.room_info_id = i.info_id";
-        return jdbcTemplate.query(sql, new PostNewsMapper());
+        return jdbcTemplate.query(sql, (resultSet, i) -> {
+            int postId = resultSet.getInt("post_id");
+            String title = resultSet.getString("title");
+            String address = resultSet.getString("address");
+            BigDecimal price = resultSet.getBigDecimal("price");
+            String roomType = resultSet.getString("description");
+            String image = resultSet.getString("file_name");
+
+            return new PostNews(postId, title, address, price, roomType, image);
+        });
     }
 
     @Override
@@ -45,18 +54,23 @@ public class PostNewsRepositoryImpl implements PostNewsRepository {
                 + " on i.address_id = a.address_id"
                 + " join resources r"
                 + " on r.room_info_id = i.info_id";
-        return jdbcTemplate.query(sql, new RowMapper<PostNews>() {
-            @Override
-            public PostNews mapRow(ResultSet resultSet, int i) throws SQLException {
-                int postId = resultSet.getInt("post_id");
-                String title = resultSet.getString("title");
-                String address = resultSet.getString("address");
-                BigDecimal price = resultSet.getBigDecimal("price");
-                String image = resultSet.getString("file_name");
+        return jdbcTemplate.query(sql, new PostNewsMapper());
+    }
 
-                return new PostNews(postId, title, address, price, image);
-            }
-        });
+    @Override
+    public List<PostNews> getCustomerPosts(int customerId) {
+        String sql = "select p.post_id, i.price, i.title, a.address, r.file_name"
+                + " from room_posts p"
+                + " join room_infos i"
+                + " on p.info_id = i.info_Id"
+                + " join addresses a"
+                + " on i.address_id = a.address_id"
+                + " join resources r"
+                + " on r.room_info_id = i.info_id"
+                + " join customers c"
+                + " on c.customer_id = p.customer_id"
+                + " where c.customer_id = ?";
+        return jdbcTemplate.query(sql, new Object[]{customerId}, new PostNewsMapper());
     }
 
 }

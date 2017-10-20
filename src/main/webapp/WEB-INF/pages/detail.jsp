@@ -99,8 +99,8 @@
                         <ul id="etalage">
                             <li>
                                 <a href="#">
-                                    <img class="etalage_thumb_image" src="/image/${postDetail.fileName}" />
-                                    <img class="etalage_source_image" src="/image/${postDetail.fileName}" />
+                                    <img class="etalage_thumb_image" src="/image/${postDetail.image}" />
+                                    <img class="etalage_source_image" src="/image/${postDetail.image}" />
                                 </a>
                             </li>
                         </ul>
@@ -112,6 +112,10 @@
                         <ul class="options">
                             <h4 class="m_12">Area (m<sup>2</sup>)</h4>
                             <p class="m_10">${postDetail.area}</p>
+                        </ul>
+                        <ul class="options">
+                            <h4 class="m_12">Room type</h4>
+                            <p class="m_10">${postDetail.roomType}</p>
                         </ul>
                         <ul class="add-to-links">
                             <li>Created at: ${postDetail.createdAt}</li>

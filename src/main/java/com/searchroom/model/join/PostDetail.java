@@ -2,54 +2,29 @@ package com.searchroom.model.join;
 
 import java.math.BigDecimal;
 
-public class PostDetail {
+public class PostDetail extends PostNews {
 
-    private int postId;
-    private String title;
     private float area;
-    private BigDecimal price;
     private String description;
-    private String address;
     private String latitude;
     private String longitude;
     private String createdAt;
     private String fullName;
     private String email;
     private String phoneNumber;
-    private String fileName;
 
-    public PostDetail(int postId, String title, float area, BigDecimal price, String description, String address,
-                      String latitude, String longitude, String createdAt,
-                      String fullName, String email, String phoneNumber, String fileName) {
-        this.postId = postId;
-        this.title = title;
+    public PostDetail(int postId, String title, String address, BigDecimal price, String roomType,
+                      String image, float area, String description, String latitude, String longitude,
+                      String createdAt, String fullName, String email, String phoneNumber) {
+        super(postId, title, address, price, roomType, image);
         this.area = area;
-        this.price = price;
         this.description = description;
-        this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
         this.createdAt = createdAt;
         this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.fileName = fileName;
-    }
-
-    public int getPostId() {
-        return postId;
-    }
-
-    public void setPostId(int postId) {
-        this.postId = postId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public float getArea() {
@@ -60,28 +35,12 @@ public class PostDetail {
         this.area = area;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getLatitude() {
@@ -130,14 +89,6 @@ public class PostDetail {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
     }
 
 }

@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 
 public class PostNews {
 
-    private int postId;
-    private String title;
-    private String address;
-    private BigDecimal price;
-    private String roomType;
-    private String image;
+    protected int postId;
+    protected String title;
+    protected String address;
+    protected BigDecimal price;
+    protected String roomType;
+    protected String image;
 
     public PostNews(int postId, String title, String address, BigDecimal price, String image) {
         this.postId = postId;

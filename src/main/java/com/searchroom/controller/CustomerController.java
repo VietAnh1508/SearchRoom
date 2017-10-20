@@ -3,10 +3,12 @@ package com.searchroom.controller;
 import com.searchroom.model.entities.Account;
 import com.searchroom.model.entities.Customer;
 import com.searchroom.repository.CustomerRepository;
+import com.searchroom.repository.PostNewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +21,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private PostNewsRepository postNewsRepository;
 
     @RequestMapping(value = "/customerInfo", method = RequestMethod.GET)
     public ModelAndView showInfo(HttpServletRequest request) {
@@ -36,7 +41,7 @@ public class CustomerController {
         return mav;
     }
 
-    @RequestMapping(value = "customerInfo", method = RequestMethod.POST)
+    @RequestMapping(value = "/customerInfo", method = RequestMethod.POST)
     public ModelAndView addCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result) {
         ModelAndView mav = new ModelAndView("customerInfo");
         if (result.hasErrors()) {
@@ -51,8 +56,14 @@ public class CustomerController {
             customerRepository.updateCustomer(customer);
         }
         mav.addObject("notification", "Update info successfully");
-
         return mav;
+    }
+
+    @RequestMapping(value = "/customerPost/{username}")
+    public ModelAndView getCustomerPosts(@PathVariable("username") String username) {
+        int customerId = customerRepository.getCustomerByUsername(username).getId();
+        return new ModelAndView("customerPost",
+                "postList", postNewsRepository.getCustomerPosts(customerId));
     }
 
 }

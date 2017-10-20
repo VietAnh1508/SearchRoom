@@ -1,11 +1,14 @@
 package com.searchroom.controller;
 
 import com.searchroom.model.entities.*;
+import com.searchroom.model.join.NewPost;
+import com.searchroom.model.join.PostNews;
 import com.searchroom.repository.*;
 import com.searchroom.service.AddressService;
 import com.searchroom.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -48,11 +51,15 @@ public class RoomController {
 
     @RequestMapping(value = "/addRoom", method = RequestMethod.GET)
     public ModelAndView showPostPage() {
-        return new ModelAndView("post", "roomTypeList", roomTypeRepository.getRoomTypeList());
+        ModelAndView mav = new ModelAndView("post");
+        mav.addObject("newPost", new NewPost());
+        mav.addObject("roomTypeList", roomTypeRepository.getRoomTypeList());
+        return mav;
     }
 
     @RequestMapping(value = "/addRoom", method = RequestMethod.POST)
-    public ModelAndView addNewRoom(HttpServletRequest request) throws SQLException {
+    public ModelAndView addNewRoom(@ModelAttribute("newPost")NewPost newPost, HttpServletRequest request)
+            throws SQLException {
         ModelAndView mav = new ModelAndView("post");
         mav.addObject("roomTypeList", roomTypeRepository.getRoomTypeList());
 
@@ -63,38 +70,14 @@ public class RoomController {
             return mav;
         }
 
-        String title = request.getParameter("title");
-        String address = request.getParameter("address");
-        float area;
-        try {
-            area = Float.valueOf(request.getParameter("area"));
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            mav.addObject("message", "Area is invalid");
-            return mav;
-        }
-
-        BigDecimal price;
-        try {
-            double input = Double.parseDouble(request.getParameter("price"));
-            price = BigDecimal.valueOf(input);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            mav.addObject("message", "Price is invalid");
-            return mav;
-        }
-
-        String description = request.getParameter("description");
-        if ("".equals(title) || "".equals(address) || "".equals(description)) {
+        if ("".equals(newPost.getTitle()) || "".equals(newPost.getAddress()) || "".equals(newPost.getDescription())) {
             mav.addObject("message", "Please fill all the fields");
             return mav;
         }
 
-        int roomTypeId = Integer.valueOf(request.getParameter("type"));
-
         Address addressObject;
         try {
-            addressObject = addressService.getLatLngByAddress(address);
+            addressObject = addressService.getLatLngByAddress(newPost.getAddress());
         } catch (Exception e) {
             e.printStackTrace();
             mav.addObject("message", "Unknown error, please try again");
@@ -103,7 +86,8 @@ public class RoomController {
 
         int addressId = addressRepository.addAddress(addressObject);
 
-        RoomInfo roomInfo = new RoomInfo(title, area, price, description, addressId, roomTypeId);
+        RoomInfo roomInfo = new RoomInfo(newPost.getTitle(), newPost.getArea(), newPost.getPrice(),
+                newPost.getDescription(), addressId, newPost.getTypeId());
         int roomInfoId = roomInfoRepository.addRoomInfo(roomInfo);
 
         Customer customer = customerRepository.getCustomerByUsername(loggedInUser.getUsername());
