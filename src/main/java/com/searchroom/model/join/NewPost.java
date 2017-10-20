@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class NewPost {
 
+    private int postId;
     private String title;
     private String address;
     private float area;
@@ -14,13 +15,23 @@ public class NewPost {
     public NewPost() {
     }
 
-    public NewPost(String title, String address, float area, BigDecimal price, int typeId, String description) {
+    public NewPost(int postId, String title, String address, float area, BigDecimal price,
+                   int typeId, String description) {
+        this.postId = postId;
         this.title = title;
         this.address = address;
         this.area = area;
         this.price = price;
         this.typeId = typeId;
         this.description = description;
+    }
+
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 
     public String getTitle() {

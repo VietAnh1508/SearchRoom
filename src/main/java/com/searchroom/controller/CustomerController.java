@@ -3,7 +3,7 @@ package com.searchroom.controller;
 import com.searchroom.model.entities.Account;
 import com.searchroom.model.entities.Customer;
 import com.searchroom.repository.CustomerRepository;
-import com.searchroom.repository.PostNewsRepository;
+import com.searchroom.repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -20,7 +20,7 @@ public class CustomerController {
     private CustomerRepository customerRepository;
 
     @Autowired
-    private PostNewsRepository postNewsRepository;
+    private NewsRepository newsRepository;
 
     @RequestMapping(value = "/customer-info", method = RequestMethod.GET)
     public ModelAndView showInfo(HttpServletRequest request) {
@@ -59,7 +59,7 @@ public class CustomerController {
     public ModelAndView getCustomerPosts(@RequestParam String user) {
         int customerId = customerRepository.getCustomerByUsername(user).getId();
         return new ModelAndView("customerPost",
-                "postList", postNewsRepository.getCustomerPosts(customerId));
+                "postList", newsRepository.getCustomerPosts(customerId));
     }
 
 }

@@ -1,6 +1,6 @@
 package com.searchroom.controller;
 
-import com.searchroom.repository.PostNewsRepository;
+import com.searchroom.repository.NewsRepository;
 import com.searchroom.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,14 +15,14 @@ import java.io.IOException;
 public class HomeController {
 
     @Autowired
-    private PostNewsRepository postNewsRepository;
+    private NewsRepository newsRepository;
 
     @Autowired
     private RoomService roomService;
 
     @RequestMapping(value = { "/", "/index", "/home" })
     public ModelAndView home() {
-        return new ModelAndView("home", "postNewsList", postNewsRepository.getNewestPost());
+        return new ModelAndView("home", "postNewsList", newsRepository.getNewestPost());
     }
 
     @RequestMapping(value = "/image/{imageName}")

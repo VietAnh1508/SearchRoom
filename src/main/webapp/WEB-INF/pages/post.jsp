@@ -3,7 +3,8 @@
 <div class="main">
     <div class="shop_top">
         <div class="container">
-            <form:form commandName="newPost" enctype="multipart/form-data">
+            <form:form commandName="post" action="update" enctype="multipart/form-data">
+                <form:hidden path="postId"/>
                 <div class="register-top-grid">
                     <h3>ROOM INFORMATION</h3>
                     <p style="font-weight: bold; color: #de6507">${message}</p>
@@ -35,11 +36,13 @@
                         <span>Description<label>*</label></span>
                         <form:textarea path="description" style="width: 96%; resize: none"/>
                     </div>
-                    <div>
-                        <span>Images</span>
-                        <input type="file" name="files"/>
-                    </div>
-                    <div class="clear"> </div>
+                    <c:if test="${post.postId == 0}">
+                        <div>
+                            <span>Images</span>
+                            <input type="file" name="files"/>
+                        </div>
+                    </c:if>
+                    <div class="clear"></div>
                 </div>
                 <div class="clear"> </div>
                 <input type="submit" value="submit">

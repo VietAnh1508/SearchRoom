@@ -2,7 +2,7 @@ package com.searchroom.model.join;
 
 import java.math.BigDecimal;
 
-public class PostDetail extends PostNews {
+public class PostDetail extends News {
 
     private float area;
     private String description;

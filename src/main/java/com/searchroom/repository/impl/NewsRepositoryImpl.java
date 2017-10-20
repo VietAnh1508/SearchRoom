@@ -1,28 +1,25 @@
 package com.searchroom.repository.impl;
 
 import com.searchroom.mapper.PostNewsMapper;
-import com.searchroom.model.join.PostNews;
-import com.searchroom.repository.PostNewsRepository;
+import com.searchroom.model.join.News;
+import com.searchroom.repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
 @Transactional
-public class PostNewsRepositoryImpl implements PostNewsRepository {
+public class NewsRepositoryImpl implements NewsRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
     private final int POSTS_ON_HOME_PAGE = 8;
 
-    public List<PostNews> getNewestPost() {
+    public List<News> getNewestPost() {
         String sql = "select p.post_id, i.price, i.title, a.address, t.description, r.file_name"
                 + " from room_posts p"
                 + " join room_infos i"
@@ -43,12 +40,12 @@ public class PostNewsRepositoryImpl implements PostNewsRepository {
             String roomType = resultSet.getString("description");
             String image = resultSet.getString("file_name");
 
-            return new PostNews(postId, title, address, price, roomType, image);
+            return new News(postId, title, address, price, roomType, image);
         });
     }
 
     @Override
-    public List<PostNews> getPostForRoomsPage() {
+    public List<News> getPostForRoomsPage() {
         String sql = "select p.post_id, i.price, i.title, a.address, r.file_name"
                 + " from room_posts p"
                 + " join room_infos i"
@@ -61,7 +58,7 @@ public class PostNewsRepositoryImpl implements PostNewsRepository {
     }
 
     @Override
-    public List<PostNews> getCustomerPosts(int customerId) {
+    public List<News> getCustomerPosts(int customerId) {
         String sql = "select p.post_id, i.price, i.title, a.address, r.file_name"
                 + " from room_posts p"
                 + " join room_infos i"

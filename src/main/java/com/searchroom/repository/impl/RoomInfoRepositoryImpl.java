@@ -24,33 +24,39 @@ public class RoomInfoRepositoryImpl implements RoomInfoRepository {
 
     public int addRoomInfo(final RoomInfo roomInfo) {
         KeyHolder holder = new GeneratedKeyHolder();
-        jdbcTemplate.update(new PreparedStatementCreator() {
-            public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-                String sql = "insert into room_infos (type_id, title, area, price, description, address_id) values (?, ?, ?, ?, ?, ?)";
-                PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                ps.setInt(1, roomInfo.getTypeId());
-                ps.setString(2, roomInfo.getTitle());
-                ps.setFloat(3, roomInfo.getArea());
-                ps.setBigDecimal(4, roomInfo.getPrice());
-                ps.setString(5, roomInfo.getDescription());
-                ps.setInt(6, roomInfo.getAddressId());
-                return ps;
-            }
+        jdbcTemplate.update(connection -> {
+            String sql = "insert into room_infos (type_id, title, area, price, description, address_id)" +
+                    "values (?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, roomInfo.getTypeId());
+            ps.setString(2, roomInfo.getTitle());
+            ps.setFloat(3, roomInfo.getArea());
+            ps.setBigDecimal(4, roomInfo.getPrice());
+            ps.setString(5, roomInfo.getDescription());
+            ps.setInt(6, roomInfo.getAddressId());
+            return ps;
         }, holder);
 
         return holder.getKey().intValue();
     }
 
     @Override
-    public void deleteRoomInfo(int infoId) {
-        String sql = "delete from room_infos where info_id = ?";
-        jdbcTemplate.update(sql, new Object[]{ infoId });
+    public int getAddressId(int infoId) {
+        String sql = "select address_id from room_infos where info_id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{infoId}, Integer.class);
     }
 
     @Override
-    public int getAddressId(int infoId) {
-        String sql = "select address_id from room_infos where info_id = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[] {infoId}, Integer.class);
+    public void updateRoomInfo(RoomInfo roomInfo) {
+        String sql = "update room_infos set type_id = ?, area = ?, price = ?, description = ?, title = ? where info_id = ?";
+        jdbcTemplate.update(sql, new Object[]{roomInfo.getTypeId(), roomInfo.getArea(),
+                roomInfo.getPrice(), roomInfo.getDescription(), roomInfo.getTitle(), roomInfo.getId()});
+    }
+
+    @Override
+    public void deleteRoomInfo(int infoId) {
+        String sql = "delete from room_infos where info_id = ?";
+        jdbcTemplate.update(sql, new Object[]{infoId});
     }
 
 }

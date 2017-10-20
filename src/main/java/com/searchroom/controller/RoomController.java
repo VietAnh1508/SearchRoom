@@ -2,7 +2,6 @@ package com.searchroom.controller;
 
 import com.searchroom.model.entities.*;
 import com.searchroom.model.join.NewPost;
-import com.searchroom.model.join.PostNews;
 import com.searchroom.repository.*;
 import com.searchroom.service.AddressService;
 import com.searchroom.service.RoomService;
@@ -16,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.math.BigDecimal;
 import java.sql.SQLException;
 
 @Controller
@@ -45,36 +43,32 @@ public class RoomController {
     private RoomService roomService;
 
     @Autowired
-    private PostNewsRepository postNewsRepository;
+    private NewsRepository newsRepository;
 
     @Autowired
     private ResourceRepository resourceRepository;
 
+    @Autowired
+    private NewPostRepository newPostRepository;
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView showRoomsPage() {
-        return new ModelAndView("rooms", "postList", postNewsRepository.getPostForRoomsPage());
+        return new ModelAndView("rooms", "postList", newsRepository.getPostForRoomsPage());
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
     public ModelAndView showPostPage() {
         ModelAndView mav = new ModelAndView("post");
-        mav.addObject("newPost", new NewPost());
+        mav.addObject("post", new NewPost());
         mav.addObject("roomTypeList", roomTypeRepository.getRoomTypeList());
         return mav;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addNewRoom(@ModelAttribute("newPost")NewPost newPost, HttpServletRequest request)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public ModelAndView addOrUpdate(@ModelAttribute("post") NewPost newPost, HttpServletRequest request)
             throws SQLException {
         ModelAndView mav = new ModelAndView("post");
         mav.addObject("roomTypeList", roomTypeRepository.getRoomTypeList());
-
-        Account loggedInUser = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
-        Customer customerInfo = customerRepository.getCustomerByUsername(loggedInUser.getUsername());
-        if (customerInfo.getFullName() == null) {
-            mav.addObject("message", "Please complete your information before post new room");
-            return mav;
-        }
 
         if ("".equals(newPost.getTitle()) || "".equals(newPost.getAddress()) || "".equals(newPost.getDescription())) {
             mav.addObject("message", "Please fill all the fields");
@@ -90,7 +84,25 @@ public class RoomController {
             return mav;
         }
 
-        int addressId = addressRepository.addAddress(addressObject);
+        if (newPost.getPostId() == 0) {
+            mav = addRoom(mav, newPost, request, addressObject);
+        } else {
+            mav = updateRoom(mav, newPost, addressObject);
+        }
+
+        return mav;
+    }
+
+    private ModelAndView addRoom(ModelAndView mav, NewPost newPost, HttpServletRequest request, Address address)
+            throws SQLException {
+        Account loggedInUser = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
+        Customer customerInfo = customerRepository.getCustomerByUsername(loggedInUser.getUsername());
+        if (customerInfo.getFullName() == null) {
+            mav.addObject("message", "Please complete your information before post new room");
+            return mav;
+        }
+
+        int addressId = addressRepository.addAddress(address);
 
         RoomInfo roomInfo = new RoomInfo(newPost.getTitle(), newPost.getArea(), newPost.getPrice(),
                 newPost.getDescription(), addressId, newPost.getTypeId());
@@ -106,10 +118,23 @@ public class RoomController {
         return mav;
     }
 
+    private ModelAndView updateRoom(ModelAndView mav, NewPost newPost, Address address) {
+        int roomInfoId = roomPostRepository.getInfoId(newPost.getPostId());
+        RoomInfo info = new RoomInfo(roomInfoId, newPost.getTitle(), newPost.getArea(), newPost.getPrice(),
+                newPost.getDescription(), newPost.getTypeId());
+        roomInfoRepository.updateRoomInfo(info);
+
+//        address.setId(roomInfoRepository.getAddressId(roomInfoId));
+//        addressRepository.updateAddress(address);
+
+        mav.addObject("message", "Update succeed");
+        return mav;
+    }
+
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editRoomPost(@RequestParam("post-id") int postId) {
         ModelAndView mav = new ModelAndView("post");
-        mav.addObject("newPost", new NewPost());
+        mav.addObject("post", newPostRepository.getNewPostByPostId(postId));
         mav.addObject("roomTypeList", roomTypeRepository.getRoomTypeList());
         return mav;
     }

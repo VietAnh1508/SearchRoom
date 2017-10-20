@@ -13,6 +13,15 @@ public class RoomInfo {
     private int addressId;
     private int typeId;
 
+    public RoomInfo(int id, String title, float area, BigDecimal price, String description, int typeId) {
+        this.id = id;
+        this.title = title;
+        this.area = area;
+        this.price = price;
+        this.description = description;
+        this.typeId = typeId;
+    }
+
     public RoomInfo(String title, float area, BigDecimal price, String description, int addressId, int typeId) {
         this.title = title;
         this.area = area;

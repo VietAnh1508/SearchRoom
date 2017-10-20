@@ -2,7 +2,7 @@ package com.searchroom.model.join;
 
 import java.math.BigDecimal;
 
-public class PostNews {
+public class News {
 
     protected int postId;
     protected String title;
@@ -11,7 +11,7 @@ public class PostNews {
     protected String roomType;
     protected String image;
 
-    public PostNews(int postId, String title, String address, BigDecimal price, String image) {
+    public News(int postId, String title, String address, BigDecimal price, String image) {
         this.postId = postId;
         this.title = title;
         this.address = address;
@@ -19,7 +19,7 @@ public class PostNews {
         this.image = image;
     }
 
-    public PostNews(int postId, String title, String address, BigDecimal price, String roomType, String image) {
+    public News(int postId, String title, String address, BigDecimal price, String roomType, String image) {
         this.postId = postId;
         this.title = title;
         this.address = address;
