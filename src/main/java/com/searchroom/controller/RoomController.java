@@ -11,13 +11,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 
 @Controller
+@RequestMapping(value = "/rooms")
 public class RoomController {
 
     @Autowired
@@ -44,12 +47,15 @@ public class RoomController {
     @Autowired
     private PostNewsRepository postNewsRepository;
 
-    @RequestMapping(value = "/rooms")
+    @Autowired
+    private ResourceRepository resourceRepository;
+
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView showRoomsPage() {
         return new ModelAndView("rooms", "postList", postNewsRepository.getPostForRoomsPage());
     }
 
-    @RequestMapping(value = "/addRoom", method = RequestMethod.GET)
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView showPostPage() {
         ModelAndView mav = new ModelAndView("post");
         mav.addObject("newPost", new NewPost());
@@ -57,7 +63,7 @@ public class RoomController {
         return mav;
     }
 
-    @RequestMapping(value = "/addRoom", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addNewRoom(@ModelAttribute("newPost")NewPost newPost, HttpServletRequest request)
             throws SQLException {
         ModelAndView mav = new ModelAndView("post");
@@ -98,6 +104,23 @@ public class RoomController {
 
         mav.addObject("message", "Add new room succeed");
         return mav;
+    }
+
+    @RequestMapping(value = "/delete")
+    public String editRoom(@RequestParam("post-id") int postId, HttpServletRequest request,
+                                 final RedirectAttributes redirectAttributes) {
+        int infoId = roomPostRepository.getInfoId(postId);
+        int resourceId = resourceRepository.getId(infoId);
+        int addressId = roomInfoRepository.getAddressId(infoId);
+
+        resourceRepository.deleteResource(resourceId);
+        roomPostRepository.deleteRoomPost(postId);
+        roomInfoRepository.deleteRoomInfo(infoId);
+        addressRepository.deleteAddress(addressId);
+
+        Account account = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
+        redirectAttributes.addFlashAttribute("message", "Deleted post successfully");
+        return "redirect:/customer-posts?user=" + account.getUsername();
     }
 
 }

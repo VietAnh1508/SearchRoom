@@ -22,4 +22,16 @@ public class ResourceRepositoryImpl implements ResourceRepository {
         });
     }
 
+    @Override
+    public void deleteResource(int resourceId) {
+        String sql = "delete from resources where resource_id = ?";
+        jdbcTemplate.update(sql, new Object[]{ resourceId });
+    }
+
+    @Override
+    public int getId(int infoId) {
+        String sql = "select resource_id from resources where room_info_id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[] {infoId}, Integer.class);
+    }
+
 }

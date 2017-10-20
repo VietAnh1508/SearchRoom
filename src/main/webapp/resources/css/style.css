@@ -1211,22 +1211,19 @@ li.youtube a span {
     padding: 0 2%;
     margin-top: 5%;
 }
-
 /*--shop--*/
 .shop_top {
     padding: 5% 0;
 }
-
 .new-box {
     right: 10px;
 }
-
 .new-box, .sale-box {
     position: absolute;
-    top: 16px;
+    top: 23px;
     overflow: hidden;
     height: 38px;
-    min-width: 70px;
+    min-width: 85px;
     text-align: left;
     z-index: 0;
     display: inline-block;
@@ -2289,4 +2286,8 @@ fieldset.input input[type="submit"]:hover {
 .error {
     color: red;
     font-size: small;
+}
+
+.home-post {
+    height: 300px;
 }

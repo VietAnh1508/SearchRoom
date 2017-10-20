@@ -20,18 +20,21 @@ public class PostNewsRepositoryImpl implements PostNewsRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    private final int POSTS_ON_HOME_PAGE = 8;
 
     public List<PostNews> getNewestPost() {
         String sql = "select p.post_id, i.price, i.title, a.address, t.description, r.file_name"
                 + " from room_posts p"
                 + " join room_infos i"
-                + " on p.info_id = i.info_Id"
+                + " on p.info_id = i.info_id"
                 + " join addresses a"
                 + " on i.address_id = a.address_id"
                 + " join room_types t"
                 + " on t.type_id = i.type_id"
                 + " join resources r"
-                + " on r.room_info_id = i.info_id";
+                + " on r.room_info_id = i.info_id"
+                + " order by p.created_at desc"
+                + " limit " + POSTS_ON_HOME_PAGE;
         return jdbcTemplate.query(sql, (resultSet, i) -> {
             int postId = resultSet.getInt("post_id");
             String title = resultSet.getString("title");

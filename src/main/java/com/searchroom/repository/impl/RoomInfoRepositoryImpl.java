@@ -41,4 +41,16 @@ public class RoomInfoRepositoryImpl implements RoomInfoRepository {
         return holder.getKey().intValue();
     }
 
+    @Override
+    public void deleteRoomInfo(int infoId) {
+        String sql = "delete from room_infos where info_id = ?";
+        jdbcTemplate.update(sql, new Object[]{ infoId });
+    }
+
+    @Override
+    public int getAddressId(int infoId) {
+        String sql = "select address_id from room_infos where info_id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[] {infoId}, Integer.class);
+    }
+
 }

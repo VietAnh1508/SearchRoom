@@ -5,5 +5,6 @@ import com.searchroom.model.entities.Address;
 public interface AddressRepository {
 
     int addAddress(Address address);
+    void deleteAddress(int addressId);
 
 }

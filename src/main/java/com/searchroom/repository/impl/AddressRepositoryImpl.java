@@ -38,4 +38,10 @@ public class AddressRepositoryImpl implements AddressRepository {
         return holder.getKey().intValue();
     }
 
+    @Override
+    public void deleteAddress(int addressId) {
+        String sql = "delete from addresses where address_id = ?";
+        jdbcTemplate.update(sql, new Object[]{ addressId });
+    }
+
 }

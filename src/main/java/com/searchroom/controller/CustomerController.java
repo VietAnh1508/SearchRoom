@@ -7,10 +7,7 @@ import com.searchroom.repository.PostNewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +22,7 @@ public class CustomerController {
     @Autowired
     private PostNewsRepository postNewsRepository;
 
-    @RequestMapping(value = "/customerInfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/customer-info", method = RequestMethod.GET)
     public ModelAndView showInfo(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("customerInfo");
 
@@ -41,7 +38,7 @@ public class CustomerController {
         return mav;
     }
 
-    @RequestMapping(value = "/customerInfo", method = RequestMethod.POST)
+    @RequestMapping(value = "/customer-info", method = RequestMethod.POST)
     public ModelAndView addCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result) {
         ModelAndView mav = new ModelAndView("customerInfo");
         if (result.hasErrors()) {
@@ -59,9 +56,9 @@ public class CustomerController {
         return mav;
     }
 
-    @RequestMapping(value = "/customerPost/{username}")
-    public ModelAndView getCustomerPosts(@PathVariable("username") String username) {
-        int customerId = customerRepository.getCustomerByUsername(username).getId();
+    @RequestMapping(value = "/customer-posts")
+    public ModelAndView getCustomerPosts(@RequestParam String user) {
+        int customerId = customerRepository.getCustomerByUsername(user).getId();
         return new ModelAndView("customerPost",
                 "postList", postNewsRepository.getCustomerPosts(customerId));
     }

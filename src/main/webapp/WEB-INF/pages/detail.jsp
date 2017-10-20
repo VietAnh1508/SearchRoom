@@ -93,6 +93,7 @@
 <div class="main">
     <div class="shop_top">
         <div class="container">
+            <h3 class="m_3">Room's Detail</h3>
             <div class="row">
                 <div class="col-md-9 single_left">
                     <div class="single_image">

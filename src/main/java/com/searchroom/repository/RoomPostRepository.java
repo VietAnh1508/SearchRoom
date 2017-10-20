@@ -5,5 +5,7 @@ import com.searchroom.model.entities.RoomPost;
 public interface RoomPostRepository {
 
     void addRoomPost(RoomPost roomPost);
+    void deleteRoomPost(int postId);
+    int getInfoId(int postId);
 
 }

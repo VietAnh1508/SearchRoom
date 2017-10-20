@@ -77,7 +77,7 @@ public class AccountController {
             }
 
             if (loggedInAccount.getRole().equals("CUSTOMER")) {
-                model = new ModelAndView("redirect:/customerInfo");
+                model = new ModelAndView("redirect:/customer-info");
             } else {
                 model = new ModelAndView("redirect:/admin");
             }

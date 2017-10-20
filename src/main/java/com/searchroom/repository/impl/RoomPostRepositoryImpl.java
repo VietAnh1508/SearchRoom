@@ -19,4 +19,16 @@ public class RoomPostRepositoryImpl implements RoomPostRepository {
         jdbcTemplate.update(sql, new Object[]{ roomPost.getCustomerId(), roomPost.getRoomInfoId() });
     }
 
+    @Override
+    public void deleteRoomPost(int postId) {
+        String sql = "delete from room_posts where post_id = ?";
+        jdbcTemplate.update(sql, new Object[]{ postId });
+    }
+
+    @Override
+    public int getInfoId(int postId) {
+        String sql = "select info_id from room_posts where post_id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[] {postId}, Integer.class);
+    }
+
 }

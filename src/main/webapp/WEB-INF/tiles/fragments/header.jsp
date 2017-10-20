@@ -12,7 +12,7 @@
                         <a class="toggleMenu" href="#"><img src=<c:url value="/resources/images/nav.png"/>/></a>
                         <ul class="icon1 sub-icon1" style="display:flex;">
                             <li><a href="<c:url value="/rooms"/>" class="header-menu">Rooms</a></li>
-                            <li><a href="<c:url value="/addRoom"/>" class="header-menu">Post</a></li>
+                            <li><a href="<c:url value="/rooms/add"/>" class="header-menu">Post</a></li>
                             <c:if test="${empty LOGGED_IN_USER.username}">
                                 <li><a href="<c:url value="/login"/>" class="header-menu">Login</a></li>
                                 <li><a href="<c:url value="/register"/>" class="header-menu">Register</a></li>
@@ -24,8 +24,8 @@
                                             <li><a href="<c:url value="/admin"/>" style="color:black;">Web Manager</a></li>
                                         </c:if>
                                         <c:if test="${LOGGED_IN_USER.role == \"CUSTOMER\"}">
-                                            <li><a href="<c:url value="/customerPost/${LOGGED_IN_USER.username}"/>" style="color:black;">My post</a></li>
-                                            <li><a href="<c:url value="/customerInfo"/>" style="color:black;">Account's info</a></li>
+                                            <li><a href="<c:url value="/customer-posts?user=${LOGGED_IN_USER.username}"/>" style="color:black;">My post</a></li>
+                                            <li><a href="<c:url value="/customer-info"/>" style="color:black;">Account's info</a></li>
                                         </c:if>
                                         <li><a href="<c:url value="/logout"/>" style="color:black;">Log out</a></li>
                                     </ul>
