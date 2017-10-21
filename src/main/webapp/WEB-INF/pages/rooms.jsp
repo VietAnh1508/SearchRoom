@@ -3,6 +3,7 @@
 <div class="main">
     <div class="shop_top">
         <div class="container">
+            <h4>${message}</h4>
             <h3 class="m_3">Room List</h3>
             <div class="close_but"><i class="close1"> </i></div>
             <div class="row shop_box-top">

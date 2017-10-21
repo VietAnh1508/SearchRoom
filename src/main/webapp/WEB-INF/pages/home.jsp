@@ -26,7 +26,7 @@
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <h1 class="title">Run Over<br>Everything</h1>
-                        <div class="button"><a href="<c:url value="/rooms"/>">See Details</a></div>
+                        <div class="button"><a href="#">See Details</a></div>
                     </div>
                 </div>
             </div>

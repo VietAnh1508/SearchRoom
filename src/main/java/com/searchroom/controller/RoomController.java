@@ -170,4 +170,15 @@ public class RoomController {
         return "redirect:/customer-posts?user=" + account.getUsername();
     }
 
+    @RequestMapping(value = "/search")
+    public ModelAndView search(HttpServletRequest request) {
+        if (request.getParameter("search") == null) {
+            return new ModelAndView("redirect:/");
+        }
+        ModelAndView mav = new ModelAndView("rooms");
+        mav.addObject("message", "Search result");
+        mav.addObject("postList", newsRepository.getNewForSearch(request.getParameter("search")));
+        return mav;
+    }
+
 }

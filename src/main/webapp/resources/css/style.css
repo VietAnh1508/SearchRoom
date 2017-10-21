@@ -1845,7 +1845,7 @@ h4.title {
     margin: 0;
     display: block;
 }
-input.inputbox, input.required, div.k2AccountPage input[type="text"] {
+input.inputbox, input.required, div.k2AccountPage input[type="text"], input[type=password] {
     background: #FFF;
     outline-color: #00BFF0;
     border: 1px solid #EEE;
@@ -1905,7 +1905,7 @@ fieldset.input input[type="submit"]:hover {
 .register-top-grid input[type="text"], .register-bottom-grid input[type="text"], input[type="password"] {
     border: 1px solid #EEE;
     outline-color: #00BFF0;
-    width: 96%;
+    width: 95%;
     font-size: 1em;
     padding: 0.5em;
     font-family: 'Open Sans', sans-serif;
@@ -2288,7 +2288,6 @@ fieldset.input input[type="submit"]:hover {
     color: red;
     font-size: small;
 }
-
 .home-post {
     height: 300px;
 }

@@ -9,5 +9,6 @@ public interface NewsRepository {
     List<News> getNewestPost();
     List<News> getPostForRoomsPage();
     List<News> getCustomerPosts(int customerId);
+    List<News> getNewForSearch(String search);
 
 }
