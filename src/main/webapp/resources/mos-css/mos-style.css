@@ -190,7 +190,7 @@ tr.data:hover small {color: #5b5b5b;}
 	-webkit-border-top-left-radius: 8px;-webkit-border-bottom-left-radius: 8px;
 	-o-border-top-left-radius: 8px;-o-border-bottom-left-radius: 8px;}
 #leftBar ul li a {
-	width: 100%;
+	/*width: 100%;*/
 	color: #2e2e2e;
     cursor: pointer;
 	padding: 10px 65px 10px 20px;

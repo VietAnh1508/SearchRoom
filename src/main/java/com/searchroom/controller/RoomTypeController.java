@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -43,15 +40,15 @@ public class RoomTypeController {
         return new ModelAndView("redirect:/roomType");
     }
 
-    @RequestMapping("/edit/{id}")
-    public String editRoomType(@PathVariable("id") int id, Model model) {
+    @RequestMapping("/edit")
+    public String editRoomType(@RequestParam("id") int id, Model model) {
         model.addAttribute("roomType", roomTypeRepository.getRoomTypeById(id));
         model.addAttribute("roomTypeList", roomTypeRepository.getRoomTypeList());
         return "roomType";
     }
 
-    @RequestMapping("/remove/{id}")
-    public String removeRoomType(@PathVariable("id") int id) {
+    @RequestMapping("/remove")
+    public String removeRoomType(@RequestParam("id") int id) {
         roomTypeRepository.deleteRoomType(id);
         return "redirect:/roomType";
     }

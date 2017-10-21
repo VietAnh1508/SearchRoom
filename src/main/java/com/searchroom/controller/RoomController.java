@@ -109,7 +109,7 @@ public class RoomController {
             throws SQLException {
         Account loggedInUser = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
         Customer customerInfo = customerRepository.getCustomerByUsername(loggedInUser.getUsername());
-        if (customerInfo.getFullName() == null) {
+        if (customerInfo == null) {
             mav.addObject("message", "Please complete your information before post new room");
             return mav;
         }

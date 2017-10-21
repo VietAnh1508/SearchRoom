@@ -6,10 +6,19 @@
     border-bottom: 1px solid #dcdcdc;
     margin: auto;
     text-align: left;
-    -moz-box-shadow: 0px 0px 8px #dcdcdc;
-    -webkit-box-shadow: 0px 0px 8px #dcdcdc;
+    -moz-box-shadow: 0 0 8px #dcdcdc;
+    -webkit-box-shadow: 0 0 8px #dcdcdc;
 }
-#leftBar ul {list-style: none;padding: 0; margin: 0;font-size: 13px;}
+#leftBar {
+    width: 30%;
+}
+#leftBar ul {
+    width: 30%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
 #leftBar ul li {
     width: 200px;
     background: #000;
@@ -23,7 +32,7 @@
     -o-border-top-left-radius: 8px;-o-border-bottom-left-radius: 8px;
 }
 #leftBar ul li a {
-    width: 100%;
+    /*width: 100%;*/
     color: #fff;
     cursor: pointer;
     padding: 10px 65px 10px 20px;
@@ -39,7 +48,7 @@
 }
 table.data {
     border: 1px solid #dcdcdc;
-    margin: 10px 0px 20px 0px;
+    margin: 10px 0 20px 0;
     width: 97%;
     border-collapse: collapse;
     font-size: 12px;
@@ -82,7 +91,7 @@ tr.data:hover small {
     width: 725px;
     padding: 5px;
     float: left;
-    border-left: 0px solid #dcdcdc;
+    border-left: 0 solid #dcdcdc;
     text-align: left;
     background: #fff;
 }

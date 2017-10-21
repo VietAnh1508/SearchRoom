@@ -26,7 +26,7 @@
                         <c:if test="${empty roomType.description}">
                             <input type="submit" value="Add"/>
                         </c:if>
-                        <a href="/roomType">Cancel</a>
+                        <a href="<c:url value="/roomType"/>">Cancel</a>
                     </td>
                 </tr>
             </table>
@@ -45,8 +45,8 @@
                     <tr class="data">
                         <td class="data">${roomType.id}</td>
                         <td class="data">${roomType.description}</td>
-                        <td class="data"><a href="<c:url value="/roomType/edit/${roomType.id}"/>">Edit</a></td>
-                        <td class="data"><a href="<c:url value="/roomType/remove/${roomType.id}"/>">Delete</a></td>
+                        <td class="data"><a href="<c:url value="/roomType/edit?id=${roomType.id}"/>">Edit</a></td>
+                        <td class="data"><a href="<c:url value="/roomType/remove?id=${roomType.id}"/>">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>
