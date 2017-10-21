@@ -77,7 +77,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/addRoom", "/admin");
+        registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/rooms/update", "/admin");
         registry.addInterceptor(cookieInterceptor()).addPathPatterns("/*");
     }
 

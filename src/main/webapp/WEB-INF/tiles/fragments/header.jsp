@@ -12,7 +12,7 @@
                         <a class="toggleMenu" href="#"><img src=<c:url value="/resources/images/nav.png"/>/></a>
                         <ul class="icon1 sub-icon1" style="display:flex;">
                             <li><a href="<c:url value="/rooms"/>" class="header-menu">Rooms</a></li>
-                            <li><a href="<c:url value="/rooms/add"/>" class="header-menu">Post</a></li>
+                            <li><a href="<c:url value="/rooms/update"/>" class="header-menu">Post</a></li>
                             <c:if test="${empty LOGGED_IN_USER.username}">
                                 <li><a href="<c:url value="/login"/>" class="header-menu">Login</a></li>
                                 <li><a href="<c:url value="/register"/>" class="header-menu">Register</a></li>
