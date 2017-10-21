@@ -1,12 +1,13 @@
 package com.searchroom.controller;
 
+import com.searchroom.exception.RoomNotFoundException;
 import com.searchroom.model.join.PostDetail;
 import com.searchroom.repository.PostDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,17 @@ public class PostDetailController {
 
     @RequestMapping(value = "/detail")
     public ModelAndView showDetailPage(@RequestParam("post-id") int postId) {
-        return new ModelAndView("detail", "postDetail", postDetailRepository.getPostDetail(postId));
+        PostDetail detail = postDetailRepository.getPostDetail(postId);
+        if (detail == null) {
+            throw new RoomNotFoundException();
+        }
+        return new ModelAndView("detail", "postDetail", detail);
+    }
+
+    @ExceptionHandler(RoomNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ModelAndView handleRoomNotFoundException() {
+        return new ModelAndView("exception", "message", "Room is not exist");
     }
 
     @SuppressWarnings("unchecked")

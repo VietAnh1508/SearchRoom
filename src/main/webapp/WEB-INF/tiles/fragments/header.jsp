@@ -12,12 +12,14 @@
                         <a class="toggleMenu" href="#"><img src=<c:url value="/resources/images/nav.png"/>/></a>
                         <ul class="icon1 sub-icon1" style="display:flex;">
                             <li><a href="<c:url value="/rooms"/>" class="header-menu">Rooms</a></li>
-                            <li><a href="<c:url value="/rooms/update"/>" class="header-menu">Post</a></li>
                             <c:if test="${empty LOGGED_IN_USER.username}">
                                 <li><a href="<c:url value="/login"/>" class="header-menu">Login</a></li>
                                 <li><a href="<c:url value="/register"/>" class="header-menu">Register</a></li>
                             </c:if>
-                            <c:if test="${!empty LOGGED_IN_USER.username}">
+                            <c:if test="${not empty LOGGED_IN_USER.username}">
+                                <c:if test="${LOGGED_IN_USER.role == \"CUSTOMER\"}">
+                                    <li><a href="<c:url value="/rooms/update"/>" class="header-menu">Post</a></li>
+                                </c:if>
                                 <li><a href="#" class="header-menu">Welcome ${LOGGED_IN_USER.username}</a>
                                     <ul class="sub-icon1 list" style="display:flex; flex-direction: column;font-size: 18px;">
                                         <c:if test="${LOGGED_IN_USER.role == \"ADMIN\"}">

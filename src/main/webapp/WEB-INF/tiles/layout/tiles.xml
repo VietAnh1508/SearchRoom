@@ -5,7 +5,6 @@
     <definition name="base-definition" template="/WEB-INF/tiles/layout/defaultLayout.jsp">
         <put-attribute name="title" value=""/>
         <put-attribute name="header" value="/WEB-INF/tiles/fragments/header.jsp"/>
-        <put-attribute name="menu" value="/WEB-INF/tiles/fragments/menu.jsp"/>
         <put-attribute name="body" value=""/>
         <put-attribute name="footer" value="/WEB-INF/tiles/fragments/footer.jsp"/>
     </definition>
@@ -63,5 +62,10 @@
     <definition name="permissionError" extends="base-definition">
         <put-attribute name="title" value="Error"/>
         <put-attribute name="body" value="/WEB-INF/pages/permissionError.jsp"/>
+    </definition>
+
+    <definition name="exception" extends="base-definition">
+        <put-attribute name="title" value="Error"/>
+        <put-attribute name="body" value="/WEB-INF/pages/exception.jsp"/>
     </definition>
 </tiles-definitions>
