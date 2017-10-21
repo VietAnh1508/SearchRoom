@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="banner">
     <!-- start slider -->
     <div id="fwslider">
@@ -14,7 +15,7 @@
                         <!-- Text title -->
                         <h1 class="title">Run Over<br>Everything</h1>
                         <!-- /Text title -->
-                        <div class="button"><a href="#">See Details</a></div>
+                        <div class="button"><a href="<c:url value="/rooms"/>">See Details</a></div>
                     </div>
                 </div>
                 <!-- /Texts container -->
@@ -25,7 +26,7 @@
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <h1 class="title">Run Over<br>Everything</h1>
-                        <div class="button"><a href="#">See Details</a></div>
+                        <div class="button"><a href="<c:url value="/rooms"/>">See Details</a></div>
                     </div>
                 </div>
             </div>
@@ -50,12 +51,15 @@
                             <div class="mask mask-1"></div>
                             <div class="mask mask-2"></div>
                             <div class="content">
-                                <h2>${postNews.price}</h2>
+                                <h2>
+                                    <fmt:formatNumber type="number" maxFractionDigits="3" value="${postNews.price}"/> VND
+                                </h2>
                                 <p>${postNews.address}</p>
                             </div>
                         </a>
                     </div>
-                    <h4 class="m_4"><a href="<c:url value="/detail?post-id=${postNews.postId}"/>">${postNews.title}</a></h4>
+                    <h4 class="m_4"><a href="<c:url value="/detail?post-id=${postNews.postId}"/>">${postNews.title}</a>
+                    </h4>
                     <p class="m_5">${postNews.roomType}</p>
                 </div>
             </c:forEach>

@@ -59,10 +59,18 @@ public class RoomController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public ModelAndView showPostPage() {
+    public ModelAndView showPostPage(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("post");
-        mav.addObject("post", new NewPost());
-        mav.addObject("roomTypeList", roomTypeRepository.getRoomTypeList());
+
+        Account loggedInUser = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
+        Customer customerInfo = customerRepository.getCustomerByUsername(loggedInUser.getUsername());
+        if (customerInfo == null) {
+            mav.addObject("cusInfoMess", "Please complete your information before post new room");
+        } else {
+            mav.addObject("post", new NewPost());
+            mav.addObject("roomTypeList", roomTypeRepository.getRoomTypeList());
+        }
+
         return mav;
     }
 
@@ -107,19 +115,13 @@ public class RoomController {
 
     private ModelAndView addRoom(ModelAndView mav, NewPost newPost, HttpServletRequest request, Address address)
             throws SQLException {
-        Account loggedInUser = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
-        Customer customerInfo = customerRepository.getCustomerByUsername(loggedInUser.getUsername());
-        if (customerInfo == null) {
-            mav.addObject("message", "Please complete your information before post new room");
-            return mav;
-        }
-
         int addressId = addressRepository.addAddress(address);
 
         RoomInfo roomInfo = new RoomInfo(newPost.getTitle(), newPost.getArea(), newPost.getPrice(),
                 newPost.getDescription(), addressId, newPost.getTypeId());
         int roomInfoId = roomInfoRepository.addRoomInfo(roomInfo);
 
+        Account loggedInUser = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
         Customer customer = customerRepository.getCustomerByUsername(loggedInUser.getUsername());
         RoomPost roomPost = new RoomPost(customer.getId(), roomInfoId);
         roomPostRepository.addRoomPost(roomPost);

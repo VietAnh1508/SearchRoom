@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="main">
     <div class="shop_top">
         <div class="container">
@@ -16,7 +17,10 @@
                         <div class="shop_desc">
                             <h3><a href="<c:url value="/detail?post-id=${post.postId}"/>">${post.title}</a></h3>
                             <p>${post.address}</p>
-                            <span class="actual">${post.price} VND</span><br>
+                            <span class="actual">
+                                    <fmt:formatNumber type="number" maxFractionDigits="3" value="${post.price}"/> VND
+                            </span>
+                            <br/>
                             <ul class="buttons">
                                 <li class="cart"><a href="<c:url value="/save?post-id=${post.postId}"/>">Save</a></li>
                                 <li class="shop_btn"><a href="<c:url value="/detail?post-id=${post.postId}"/>">Read

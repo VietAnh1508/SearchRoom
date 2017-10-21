@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="main">
     <div class="shop_top">
         <div class="container">
@@ -10,7 +11,7 @@
                     <c:when test="${empty postList}">
                         <h3 align="center">
                             You haven't post any room yet<br/>
-                            Click <a href="<c:url value="/rooms/add"/>">here</a> to post new room
+                            Click <a href="<c:url value="/rooms/update"/>">here</a> to post new room
                         </h3>
                     </c:when>
                     <c:otherwise>
@@ -19,12 +20,16 @@
                                 <a href="<c:url value="/detail?post-id=${post.postId}"/>">
                                     <img src="/image/${post.image}" class="img-responsive" style="height: 196px;"/>
                                     <span class="new-box">
-						        <span class="new-label">Approved</span>
-					        </span>
+						                <span class="new-label">Approved</span>
+					                </span>
                                     <div class="shop_desc">
-                                        <h3><a href="<c:url value="/detail?post-id=${post.postId}"/>">${post.title}</a></h3>
+                                        <h3><a href="<c:url value="/detail?post-id=${post.postId}"/>">${post.title}</a>
+                                        </h3>
                                         <p>${post.address}</p>
-                                        <span class="actual">${post.price} VND</span>
+                                        <span class="actual">
+                                            <fmt:formatNumber type="number" maxFractionDigits="3"
+                                                              value="${post.price}"/> VND
+                                        </span>
                                         <br/>
                                         <ul class="buttons">
                                             <li class="cart">

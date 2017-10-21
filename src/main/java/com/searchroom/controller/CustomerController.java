@@ -57,9 +57,14 @@ public class CustomerController {
 
     @RequestMapping(value = "/customer-posts")
     public ModelAndView getCustomerPosts(@RequestParam String user) {
+        ModelAndView mav = new ModelAndView("customerPost");
+        if (customerRepository.getCustomerByUsername(user) == null) {
+            return mav;
+        }
+
         int customerId = customerRepository.getCustomerByUsername(user).getId();
-        return new ModelAndView("customerPost",
-                "postList", newsRepository.getCustomerPosts(customerId));
+        mav.addObject("postList", newsRepository.getCustomerPosts(customerId));
+        return mav;
     }
 
 }

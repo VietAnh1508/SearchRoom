@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!----details-product-slider--->
 <!-- Include the Etalage files -->
 <link rel="stylesheet" href="<c:url value="/resources/css/etalage.css"/>"/>
@@ -129,7 +130,10 @@
                 </div>
                 <div class="col-md-3">
                     <div class="box-info-product">
-                        <p class="price2">${postDetail.price} VND per month</p>
+                        <p class="price2">
+                            <fmt:formatNumber type="number" maxFractionDigits="3" value="${postDetail.price}"/>
+                            VND per month
+                        </p>
                         <ul class="prosuct-qty">
                         </ul>
                         <a href="/saveRoom/${postDetail.postId}">
