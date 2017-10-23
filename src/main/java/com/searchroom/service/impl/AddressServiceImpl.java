@@ -2,7 +2,7 @@ package com.searchroom.service.impl;
 
 import com.searchroom.model.entities.Address;
 import com.searchroom.service.AddressService;
-import com.searchroom.utils.geolocation.AddressConverter;
+import com.searchroom.utils.AddressConverter;
 import org.springframework.stereotype.Service;
 
 @Service

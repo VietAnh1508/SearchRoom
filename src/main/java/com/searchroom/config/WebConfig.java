@@ -1,5 +1,6 @@
 package com.searchroom.config;
 
+import com.searchroom.interceptor.AdminInterceptor;
 import com.searchroom.interceptor.AuthenticationInterceptor;
 import com.searchroom.interceptor.CookieInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public TilesConfigurer tilesConfigurer() {
         TilesConfigurer tilesConfigurer = new TilesConfigurer();
-        tilesConfigurer.setDefinitions("WEB-INF/**/tiles.xml");
+        tilesConfigurer.setDefinitions("WEB-INF/tiles.xml");
         tilesConfigurer.setCheckRefresh(true);
         return tilesConfigurer;
     }
@@ -77,7 +78,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/rooms/update", "/admin");
+        registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/rooms/update");
+        registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/admin");
         registry.addInterceptor(cookieInterceptor()).addPathPatterns("/*");
     }
 
