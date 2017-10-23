@@ -10,15 +10,14 @@
                 <form:form commandName="account" id="login-form">
                     <div class="form-group">
                         <form:label path="username" for="login-username" class="label-custom">User Name</form:label>
-                        <form:input path="username" id="login-username" name="loginUsername" required=""/>
+                        <form:input path="username" id="login-username" name="loginUsername" autocomplete="false" required=""/>
                     </div>
                     <div class="form-group">
                         <form:label path="password" for="login-password" class="label-custom">Password</form:label>
-                        <form:password path="password" id="login-password" name="loginPassword" required=""/>
+                        <form:password path="password" id="login-password" name="loginPassword" autocomplete="false" required=""/>
                     </div>
                     <input type="checkbox" name="remember-me" value="Y"/> Remember Me
                     <input class="btn btn-primary" type="submit" value="Login"/>
-                    <%--<a id="login" href="index.html" class="btn btn-primary">Login</a>--%>
                 </form:form>
             </div>
         </div>

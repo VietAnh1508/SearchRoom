@@ -29,17 +29,26 @@
     <link rel="stylesheet" href="https://file.myfontastic.com/da58YPMQ7U5HY8Rb6UxkNf/icons.css">
 </head>
 <body>
-    <header id="header">
-        <tiles:insertAttribute name="header"/>
-    </header>
     <section id="menu">
         <tiles:insertAttribute name="menu"/>
     </section>
-    <section id="body">
-        <tiles:insertAttribute name="body"/>
-    </section>
-    <section>
-        <tiles:insertAttribute name="footer"/>
-    </section>
+    <div class="page home-page">
+        <header id="header">
+            <tiles:insertAttribute name="header"/>
+        </header>
+        <section id="body">
+            <tiles:insertAttribute name="body"/>
+        </section>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="<c:url value="/resources/admin/js/tether.min.js"/>"></script>
+    <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/resources/admin/js/jquery.cookie.js"/>"></script>
+    <script src="<c:url value="/resources/admin/js/grasp_mobile_progress_circle-1.0.0.min.js"/>"></script>
+    <script src="<c:url value="/resources/admin/js/jquery.nicescroll.min.js"/>"></script>
+    <script src="<c:url value="/resources/admin/js/jquery.validate.min.js"/>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="<c:url value="/resources/admin/js/charts-custom.js"/>"></script>
+    <script src="<c:url value="/resources/admin/js/front.js"/>"></script>
 </body>
 </html>

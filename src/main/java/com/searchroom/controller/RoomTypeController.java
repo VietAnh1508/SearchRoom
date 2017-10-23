@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/roomType")
+@RequestMapping("/roomtype")
 public class RoomTypeController {
 
     @Autowired

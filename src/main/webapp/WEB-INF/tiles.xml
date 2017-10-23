@@ -65,20 +65,6 @@
         <put-attribute name="body" value="/WEB-INF/public/pages/exception.jsp"/>
     </definition>
 
-    <!-- Template for admin -->
-    <definition name="admin-definition" template="/WEB-INF/admin/layout/template.jsp">
-        <put-attribute name="title" value=""/>
-        <put-attribute name="header" value="/WEB-INF/admin/fragments/header.jsp"/>
-        <put-attribute name="menu" value="/WEB-INF/admin/fragments/menu.jsp"/>
-        <put-attribute name="body" value=""/>
-        <put-attribute name="footer" value="/WEB-INF/admin/fragments/footer.jsp"/>
-    </definition>
-
-    <definition name="adminMain" extends="admin-definition">
-        <put-attribute name="title" value="Admin"/>
-        <put-attribute name="body" value="/WEB-INF/admin/pages/main.jsp"/>
-    </definition>
-
     <!-- Template for login page -->
     <definition name="admin-login-definition" template="/WEB-INF/admin/layout/loginTemplate.jsp">
         <put-attribute name="title" value=""/>
@@ -89,4 +75,18 @@
         <put-attribute name="title" value="Admin Login"/>
         <put-attribute name="body" value="/WEB-INF/admin/pages/login.jsp"/>
     </definition>
+
+    <!-- Template for admin -->
+    <definition name="admin-definition" template="/WEB-INF/admin/layout/template.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/admin/fragments/header.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/admin/fragments/menu.jsp"/>
+        <put-attribute name="body" value=""/>
+    </definition>
+
+    <definition name="roomTypes" extends="admin-definition">
+        <put-attribute name="title" value="Admin"/>
+        <put-attribute name="body" value="/WEB-INF/admin/pages/roomType.jsp"/>
+    </definition>
+
 </tiles-definitions>
