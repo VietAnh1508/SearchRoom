@@ -120,10 +120,10 @@
                             <p class="m_10">${postDetail.roomType}</p>
                         </ul>
                         <ul class="add-to-links">
-                            <li>Updated at: ${postDetail.createdAt}</li>
-                            <li>By: ${postDetail.fullName}</li>
-                            <li>Email: ${postDetail.email}</li>
-                            <li>Phone number: ${postDetail.phoneNumber}</li>
+                            <li>Updated at: <i>${postDetail.createdAt}</i></li>
+                            <li>By: <i>${postDetail.fullName}</i></li>
+                            <li>Email: <i>${postDetail.email}</i></li>
+                            <li>Phone number: <i>${postDetail.phoneNumber}</i></li>
                         </ul>
                     </div>
                     <div class="clear"></div>
@@ -134,13 +134,6 @@
                             <fmt:formatNumber type="number" maxFractionDigits="3" value="${postDetail.price}"/>
                             VND per month
                         </p>
-                        <ul class="prosuct-qty">
-                        </ul>
-                        <a href="/saveRoom/${postDetail.postId}">
-                            <button type="submit" name="Submit" class="exclusive">
-                                <span>Save</span>
-                            </button>
-                        </a>
                     </div>
                 </div>
             </div>

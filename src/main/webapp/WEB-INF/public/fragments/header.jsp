@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="header-left">
                     <div class="logo">
-                        <a href=<c:url value="/"/>><img src="<c:url value="/resources/public/images/logo2.jpg"/>" width="80"/></a>
+                        <a href=<c:url value="/"/>><img src="<c:url value="/resources/public/images/logo.jpg"/>" width="80"/></a>
                     </div>
                     <div class="menu">
                         <a class="toggleMenu" href="#"><img src=<c:url value="/resources/public/images/nav.png"/>/></a>
@@ -58,41 +58,6 @@
                         new UISearch(document.getElementById('sb-search'));
                     </script>
                     <!----//search-scripts---->
-                    <ul class="icon1 sub-icon1 profile_img">
-                        <li><a class="active-icon c1" href="#"> </a>
-                            <ul class="sub-icon1 list">
-                                <div class="product_control_buttons">
-                                    <a href="#"><img src=<c:url value="/resources/public/images/close_edit.png"/>/></a>
-                                </div>
-                                <div class="clear"></div>
-                                <li class="list_img"><img src=<c:url value="/resources/public/images/1.jpg"/>/></li>
-                                <li class="list_desc">
-                                    <h4><a href="#">velit esse molestie</a></h4>
-                                    <span class="actual">1 x $12.00</span>
-                                </li>
-                                <div class="clear"></div>
-
-                                <div class="product_control_buttons">
-                                    <a href="#"><img src=<c:url value="/resources/public/images/close_edit.png"/>/></a>
-                                </div>
-                                <div class="clear"></div>
-                                <li class="list_img"><img src=<c:url value="/resources/public/images/1.jpg"/>/></li>
-                                <li class="list_desc">
-                                    <h4><a href="#">velit esse molestie</a></h4>
-                                    <span class="actual">1 x $12.00</span>
-                                </li>
-
-                                <div class="login_buttons">
-                                    <div class="check_button">
-                                        <a href=<c:url value="/compare"/>>Compare</a>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                                <div class="clear"></div>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="clear"></div>
                 </div>
             </div>
         </div>

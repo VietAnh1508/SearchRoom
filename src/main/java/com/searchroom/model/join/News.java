@@ -10,7 +10,7 @@ public class News {
     protected BigDecimal price;
     protected String roomType;
     protected String image;
-    protected boolean approved;
+    private boolean approved;
 
     public News(int postId, String title, String address, BigDecimal price, String image, boolean approved) {
         this.postId = postId;
