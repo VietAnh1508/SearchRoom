@@ -19,7 +19,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     public void addAccount(Account account) {
         String sql = "insert into accounts (username, password, role) values (?, ?, ?)";
-        jdbcTemplate.update(sql, new Object[] { account.getUsername(), account.getPassword(), "CUSTOMER" });
+        jdbcTemplate.update(sql, new Object[] { account.getUsername(), account.getPassword(), account.getRole() });
     }
 
     public Account getAccount(Account account) {
@@ -45,6 +45,24 @@ public class AccountRepositoryImpl implements AccountRepository {
             return result.get(0);
         }
         return null;
+    }
+
+    @Override
+    public List<Account> getAllAccounts() {
+        String sql = "select * from accounts";
+        return jdbcTemplate.query(sql, new AccountMapper());
+    }
+
+    @Override
+    public void editRole(String username, String role) {
+        String sql = "update accounts set role = ? where username = ?";
+        jdbcTemplate.update(sql, new Object[]{role, username});
+    }
+
+    @Override
+    public void deleteAccount(String username) {
+        String sql = "delete from accounts where username = ?";
+        jdbcTemplate.update(sql, new Object[]{username});
     }
 
 }

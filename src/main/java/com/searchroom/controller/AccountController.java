@@ -42,6 +42,7 @@ public class AccountController {
         }
 
         account.setPassword(accountService.md5Hash(account.getPassword()));
+        account.setRole("CUSTOMER");
         accountRepository.addAccount(account);
         ModelAndView mav = new ModelAndView("register");
         mav.addObject("account", new Account());

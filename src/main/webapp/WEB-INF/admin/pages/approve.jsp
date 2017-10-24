@@ -5,8 +5,7 @@
         <header>
             <h1 class="h3">Approve rooms</h1>
         </header>
-        <%--<div class="row">--%>
-            <div class="col-lg-6 approve-table">
+            <div class="col-lg-6 my-table">
                 <div class="card">
                     <div class="card-header d-flex align-items-center">
                         <h2 class="h5 display">Room List</h2>
@@ -52,6 +51,5 @@
                     </div>
                 </div>
             </div>
-        <%--</div>--%>
     </div>
 </section>

@@ -6,27 +6,21 @@
     <div id="fwslider">
         <div class="slider_container">
             <div class="slide">
-                <!-- Slide image -->
                 <img src="<c:url value="/resources/public/images/slider1.jpg"/>" class="img-responsive"/>
-                <!-- /Slide image -->
-                <!-- Texts container -->
                 <div class="slide_content">
                     <div class="slide_content_wrap">
-                        <!-- Text title -->
-                        <h1 class="title">Run Over<br>Everything</h1>
-                        <!-- /Text title -->
+                        <h1 class="title">Find Your<br>Home</h1>
                         <div class="button"><a href="<c:url value="/rooms"/>">See Details</a></div>
                     </div>
                 </div>
-                <!-- /Texts container -->
             </div>
             <!-- /Duplicate to create more slides -->
             <div class="slide">
                 <img src="<c:url value="/resources/public/images/slider2.jpg"/>" class="img-responsive"/>
                 <div class="slide_content">
                     <div class="slide_content_wrap">
-                        <h1 class="title">Run Over<br>Everything</h1>
-                        <div class="button"><a href="#">See Details</a></div>
+                        <h1 class="title">Find Your<br>Home</h1>
+                        <div class="button"><a href="<c:url value="/rooms"/>">See Details</a></div>
                     </div>
                 </div>
             </div>

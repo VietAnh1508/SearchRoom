@@ -132,4 +132,35 @@ public class AdminController {
         return "redirect:/admin/approve";
     }
 
+    // Controller for manage accounts
+    @RequestMapping(value = "/manage-accounts")
+    public ModelAndView showAccounts() {
+        ModelAndView model = new ModelAndView("accounts");
+        model.addObject("account", new Account());
+        model.addObject("accountList", accountRepository.getAllAccounts());
+        return model;
+    }
+
+    @RequestMapping(value = "/edit-role")
+    public ModelAndView editRole(@RequestParam("username") String username, @RequestParam("role") String role) {
+        if (!"".equals(username) && !"".equals(role)) {
+            if ("CUSTOMER".equals(role)) {
+                role = "ADMIN";
+            } else {
+                role = "CUSTOMER";
+            }
+            accountRepository.editRole(username, role);
+        }
+
+        return new ModelAndView("redirect:/admin/manage-accounts",
+                "accountList", accountRepository.getAllAccounts());
+    }
+
+    @RequestMapping(value = "/delete")
+    public ModelAndView deleteAccount(@RequestParam("username") String username) {
+        accountRepository.deleteAccount(username);
+        return new ModelAndView("redirect:/admin/manage-accounts",
+                "accountList", accountRepository.getAllAccounts());
+    }
+
 }

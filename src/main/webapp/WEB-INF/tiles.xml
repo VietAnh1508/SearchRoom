@@ -50,11 +50,6 @@
         <put-attribute name="body" value="/WEB-INF/public/pages/customerPost.jsp"/>
     </definition>
 
-    <definition name="roomType" extends="customer-definition">
-        <put-attribute name="title" value="Admin"/>
-        <put-attribute name="body" value="/WEB-INF/public/pages/roomType.jsp"/>
-    </definition>
-
     <definition name="permissionError" extends="customer-definition">
         <put-attribute name="title" value="Error"/>
         <put-attribute name="body" value="/WEB-INF/public/pages/permissionError.jsp"/>
@@ -92,5 +87,10 @@
     <definition name="approve" extends="admin-definition">
         <put-attribute name="title" value="Admin"/>
         <put-attribute name="body" value="/WEB-INF/admin/pages/approve.jsp"/>
+    </definition>
+
+    <definition name="accounts" extends="admin-definition">
+        <put-attribute name="title" value="Admin"/>
+        <put-attribute name="body" value="/WEB-INF/admin/pages/accounts.jsp"/>
     </definition>
 </tiles-definitions>
