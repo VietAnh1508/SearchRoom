@@ -89,4 +89,8 @@
         <put-attribute name="body" value="/WEB-INF/admin/pages/roomType.jsp"/>
     </definition>
 
+    <definition name="approve" extends="admin-definition">
+        <put-attribute name="title" value="Admin"/>
+        <put-attribute name="body" value="/WEB-INF/admin/pages/approve.jsp"/>
+    </definition>
 </tiles-definitions>

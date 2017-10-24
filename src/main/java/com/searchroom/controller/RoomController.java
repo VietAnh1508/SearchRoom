@@ -167,7 +167,13 @@ public class RoomController {
 
         Account account = (Account) request.getSession().getAttribute("LOGGED_IN_USER");
         redirectAttributes.addFlashAttribute("message", "Deleted post successfully");
-        return "redirect:/customer-posts?user=" + account.getUsername();
+
+        if (account.getRole().equals("CUSTOMER")) {
+            return "redirect:/customer-posts?user=" + account.getUsername();
+        } else {
+            return "redirect:/admin/approve";
+        }
+
     }
 
     @RequestMapping(value = "/search")

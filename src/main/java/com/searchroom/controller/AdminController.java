@@ -2,8 +2,7 @@ package com.searchroom.controller;
 
 import com.searchroom.model.entities.Account;
 import com.searchroom.model.entities.RoomType;
-import com.searchroom.repository.AccountRepository;
-import com.searchroom.repository.RoomTypeRepository;
+import com.searchroom.repository.*;
 import com.searchroom.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +31,12 @@ public class AdminController {
 
     @Autowired
     private RoomTypeRepository roomTypeRepository;
+
+    @Autowired
+    private PostForApproveRepository postForApproveRepository;
+
+    @Autowired
+    private RoomPostRepository roomPostRepository;
 
     @RequestMapping(value = "/login")
     public ModelAndView showLoginPage() {
@@ -74,8 +79,8 @@ public class AdminController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView showAdminPage() {
-        return new ModelAndView("/admin/room-type");
+    public String showAdminPage() {
+        return "redirect:/admin/room-type";
     }
 
     // Controllers for add room types
@@ -101,17 +106,30 @@ public class AdminController {
         return new ModelAndView("redirect:/admin/room-type");
     }
 
-    @RequestMapping("/room-type/edit")
-    public String editRoomType(@RequestParam("id") int id, Model model) {
-        model.addAttribute("roomType", roomTypeRepository.getRoomTypeById(id));
-        model.addAttribute("roomTypeList", roomTypeRepository.getRoomTypeList());
-        return "roomTypes";
+    @RequestMapping(value = "/room-type/edit")
+    public ModelAndView editRoomType(@RequestParam("id") int id) {
+        ModelAndView model = new ModelAndView("roomTypes");
+        model.addObject("roomType", roomTypeRepository.getRoomTypeById(id));
+        model.addObject("roomTypeList", roomTypeRepository.getRoomTypeList());
+        return model;
     }
 
-    @RequestMapping("/room-type/delete")
+    @RequestMapping(value = "/room-type/delete")
     public String removeRoomType(@RequestParam("id") int id) {
         roomTypeRepository.deleteRoomType(id);
         return "redirect:/admin/room-type";
+    }
+
+    // Controller for approve room
+    @RequestMapping(value = "/approve")
+    public ModelAndView showApprove() {
+        return new ModelAndView("approve", "postList", postForApproveRepository.getAllPost());
+    }
+
+    @RequestMapping(value = "/do-approve")
+    public String approveRoom(@RequestParam("id") int id, @RequestParam("approve") int approve) {
+        roomPostRepository.approveRoom(id, approve);
+        return "redirect:/admin/approve";
     }
 
 }

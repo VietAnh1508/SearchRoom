@@ -12,9 +12,11 @@
                         <a href="<c:url value="/detail?post-id=${post.postId}"/>">
                             <img src="/image/${post.image}" class="img-responsive" style="height: 196px;"/>
                         </a>
-                        <span class="new-box">
-                            <span class="new-label">Approved</span>
-                        </span>
+                        <c:if test="${post.isApproved() == true}">
+                            <span class="new-box">
+                                <span class="new-label">Approved</span>
+                            </span>
+                        </c:if>
                         <div class="shop_desc">
                             <h3><a href="<c:url value="/detail?post-id=${post.postId}"/>">${post.title}</a></h3>
                             <p>${post.address}</p>

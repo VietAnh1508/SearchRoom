@@ -9,7 +9,7 @@
             </div>
             <div class="sidenav-header-logo">
                 <a href="index.html" class="brand-small text-center">
-                    <strong>V</strong><strong class="text-primary">A</strong>
+                    <strong>VA</strong>
                 </a>
             </div>
         </div>

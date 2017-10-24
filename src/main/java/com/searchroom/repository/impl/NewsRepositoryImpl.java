@@ -49,7 +49,7 @@ public class NewsRepositoryImpl implements NewsRepository {
 
     @Override
     public List<News> getPostForRoomsPage() {
-        String sql = "select p.post_id, i.price, i.title, a.address, r.file_name"
+        String sql = "select p.post_id, p.is_approved, i.price, i.title, a.address, r.file_name"
                 + " from room_posts p"
                 + " join room_infos i"
                 + " on p.info_id = i.info_id"
@@ -62,7 +62,7 @@ public class NewsRepositoryImpl implements NewsRepository {
 
     @Override
     public List<News> getCustomerPosts(int customerId) {
-        String sql = "select p.post_id, i.price, i.title, a.address, r.file_name"
+        String sql = "select p.post_id, p.is_approved, i.price, i.title, a.address, r.file_name"
                 + " from room_posts p"
                 + " join room_infos i"
                 + " on p.info_id = i.info_id"
@@ -78,7 +78,7 @@ public class NewsRepositoryImpl implements NewsRepository {
 
     @Override
     public List<News> getNewForSearch(String search) {
-        String sql = "select p.post_id, i.price, i.title, a.address, r.file_name "
+        String sql = "select p.post_id, p.is_approved, i.price, i.title, a.address, r.file_name "
                 + "from room_posts p "
                 + "join room_infos i "
                 + "on p.info_id = i.info_id "

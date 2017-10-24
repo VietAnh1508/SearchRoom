@@ -15,8 +15,9 @@ public class NewsMapper implements RowMapper<News> {
         String address = resultSet.getString("address");
         BigDecimal price = resultSet.getBigDecimal("price");
         String image = resultSet.getString("file_name");
+        boolean approved = resultSet.getBoolean("is_approved");
 
-        return new News(postId, title, address, price, image);
+        return new News(postId, title, address, price, image, approved);
     }
 
 }

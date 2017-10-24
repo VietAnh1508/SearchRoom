@@ -10,13 +10,15 @@ public class News {
     protected BigDecimal price;
     protected String roomType;
     protected String image;
+    protected boolean approved;
 
-    public News(int postId, String title, String address, BigDecimal price, String image) {
+    public News(int postId, String title, String address, BigDecimal price, String image, boolean approved) {
         this.postId = postId;
         this.title = title;
         this.address = address;
         this.price = price;
         this.image = image;
+        this.approved = approved;
     }
 
     public News(int postId, String title, String address, BigDecimal price, String roomType, String image) {
@@ -74,6 +76,14 @@ public class News {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 
 }

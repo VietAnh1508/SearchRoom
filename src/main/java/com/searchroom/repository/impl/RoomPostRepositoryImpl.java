@@ -31,4 +31,10 @@ public class RoomPostRepositoryImpl implements RoomPostRepository {
         return jdbcTemplate.queryForObject(sql, new Object[] {postId}, Integer.class);
     }
 
+    @Override
+    public void approveRoom(int postId, int approve) {
+        String sql = "update room_posts set is_approved = ? where post_id = ?";
+        jdbcTemplate.update(sql, new Object[]{approve, postId});
+    }
+
 }

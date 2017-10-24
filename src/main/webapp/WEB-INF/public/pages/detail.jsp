@@ -120,7 +120,7 @@
                             <p class="m_10">${postDetail.roomType}</p>
                         </ul>
                         <ul class="add-to-links">
-                            <li>Created at: ${postDetail.createdAt}</li>
+                            <li>Updated at: ${postDetail.createdAt}</li>
                             <li>By: ${postDetail.fullName}</li>
                             <li>Email: ${postDetail.email}</li>
                             <li>Phone number: ${postDetail.phoneNumber}</li>
