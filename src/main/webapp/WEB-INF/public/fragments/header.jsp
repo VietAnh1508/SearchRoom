@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="header-left">
                     <div class="logo">
-                        <a href=<c:url value="/"/>><img src="<c:url value="/resources/public/images/logo2.png"/>" width="80"/></a>
+                        <a href=<c:url value="/"/>><img src="<c:url value="/resources/public/images/logo.png"/>" width="80"/></a>
                     </div>
                     <div class="menu">
                         <a class="toggleMenu" href="#"><img src=<c:url value="/resources/public/images/nav.png"/>/></a>

@@ -25,7 +25,6 @@
                             </span>
                             <br/>
                             <ul class="buttons">
-                                <li class="cart"><a href="<c:url value="/save?post-id=${post.postId}"/>">Save</a></li>
                                 <li class="shop_btn"><a href="<c:url value="/detail?post-id=${post.postId}"/>">Read
                                     More</a></li>
                                 <div class="clear"></div>
