@@ -9,7 +9,7 @@ public class PhoneConstraintValidator implements ConstraintValidator<Phone, Stri
     }
 
     public boolean isValid(String phoneField, ConstraintValidatorContext constraintValidatorContext) {
-        return phoneField != null && phoneField.matches("[0-9()-]*")
+        return phoneField != null && phoneField.matches("0[0-9()-]*")
                 && phoneField.length() >= 1 && phoneField.length() <= 11;
     }
 
