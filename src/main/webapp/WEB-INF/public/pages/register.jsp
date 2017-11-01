@@ -26,7 +26,7 @@
                             <fieldset class="input">
                                 <p id="register-form-username">
                                     <form:label path="username" for="modlgn_username">
-                                        <spring:message code="form.username.label"/>
+                                        <spring:message code="label.username"/>
                                     </form:label>
                                     <form:input path="username" id="modlgn_username" class="inputbox" size="18"
                                                 autocomplete="off"/>
@@ -34,7 +34,7 @@
                                 </p>
                                 <p id="register-form-password">
                                     <form:label path="password" for="modlgn_passwd">
-                                        <spring:message code="form.password.label"/>
+                                        <spring:message code="label.password"/>
                                     </form:label>
                                     <form:input path="password" id="modlgn_passwd" type="password" class="inputbox"
                                                 size="18"

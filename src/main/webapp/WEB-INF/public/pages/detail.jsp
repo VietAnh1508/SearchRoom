@@ -121,10 +121,10 @@
                             <p class="m_10">${postDetail.roomType}</p>
                         </ul>
                         <ul class="add-to-links">
-                            <li><spring:message code="label.updated.at"/> <i>${postDetail.createdAt}</i></li>
-                            <li><spring:message code="label.by"/> <i>${postDetail.fullName}</i></li>
-                            <li><spring:message code="label.email"/> <i>${postDetail.email}</i></li>
-                            <li><spring:message code="label.phone.number"/> <i>${postDetail.phoneNumber}</i></li>
+                            <li><spring:message code="label.updated.at"/>: <i>${postDetail.createdAt}</i></li>
+                            <li><spring:message code="label.by"/>: <i>${postDetail.fullName}</i></li>
+                            <li><spring:message code="label.email"/>: <i>${postDetail.email}</i></li>
+                            <li><spring:message code="label.phone.number"/>: <i>${postDetail.phoneNumber}</i></li>
                         </ul>
                     </div>
                     <div class="clear"></div>

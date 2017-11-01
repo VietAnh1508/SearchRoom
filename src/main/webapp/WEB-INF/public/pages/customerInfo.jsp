@@ -12,7 +12,7 @@
                     <div>
                         <span>
                             <form:label path="username">
-                                <spring:message code="form.username.label"/>
+                                <spring:message code="label.username"/>*
                             </form:label>
                         </span>
                         <form:input path="username" readonly="true"/>
@@ -21,7 +21,7 @@
                     <div>
                         <span>
                             <form:label path="fullName">
-                                <spring:message code="form.full.name.label"/>
+                                <spring:message code="label.full.name"/>*
                             </form:label>
                         </span>
                         <form:input path="fullName"/>
@@ -30,7 +30,7 @@
                     <div>
                         <span>
                             <form:label path="email">
-                                <spring:message code="form.email.label"/>
+                                <spring:message code="label.email"/>
                             </form:label>
                         </span>
                         <form:input path="email"/>
@@ -39,7 +39,7 @@
                     <div>
                         <span>
                             <form:label path="phoneNumber">
-                                <spring:message code="form.phone.label"/>
+                                <spring:message code="label.phone"/>
                             </form:label>
                         </span>
                         <form:input path="phoneNumber"/>
