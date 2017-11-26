@@ -38,6 +38,9 @@ public class AdminController {
     @Autowired
     private RoomPostRepository roomPostRepository;
 
+    @Autowired
+    private AccountAndPostRepository accountAndPostRepository;
+
     @RequestMapping(value = "/login")
     public ModelAndView showLoginPage() {
         return new ModelAndView("adminLogin", "account", new Account());
@@ -136,8 +139,7 @@ public class AdminController {
     @RequestMapping(value = "/manage-accounts")
     public ModelAndView showAccounts() {
         ModelAndView model = new ModelAndView("accounts");
-        model.addObject("account", new Account());
-        model.addObject("accountList", accountRepository.getAllAccounts());
+        model.addObject("accountList", accountAndPostRepository.getAllAccountsAndPosts());
         return model;
     }
 

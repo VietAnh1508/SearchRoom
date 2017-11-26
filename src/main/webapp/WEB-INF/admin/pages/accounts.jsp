@@ -18,7 +18,7 @@
                             <th><spring:message code="label.no"/></th>
                             <th><spring:message code="label.username"/></th>
                             <th><spring:message code="label.role"/></th>
-                            <th><spring:message code="label.edit.role"/></th>
+                            <th><spring:message code="label.post.amount"/></th>
                             <th><spring:message code="label.delete"/></th>
                         </tr>
                         </thead>
@@ -30,13 +30,24 @@
                                 </th>
                                 <td>${account.username}</td>
                                 <td>${account.role}</td>
+                                <td>${account.postAmount}</td>
                                 <td>
                                     <a href="<c:url value="/admin/edit-role?username=${account.username}&role=${account.role}"/>">
                                         <spring:message code="label.change"/>
                                     </a>
                                 </td>
-                                <td><a href="<c:url value="/admin/delete?username=${account.username}"/>"
-                                       onclick="return confirm('Are you sure?');"><spring:message code="label.delete"/></a>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${account.postAmount == 0}">
+                                            <a href="<c:url value="/admin/delete?username=${account.username}"/>"
+                                               onclick="return confirm('<spring:message code="message.confirm"/>');">
+                                                <spring:message code="label.delete"/>
+                                            </a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <spring:message code="label.delete"/>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </td>
                             </tr>
                         </c:forEach>
