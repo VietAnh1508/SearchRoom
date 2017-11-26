@@ -12,5 +12,6 @@ public interface AccountRepository {
     List<Account> getAllAccounts();
     void editRole(String username, String role);
     void deleteAccount(String username);
+    void changePassword(Account account);
 
 }

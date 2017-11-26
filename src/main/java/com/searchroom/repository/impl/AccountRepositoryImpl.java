@@ -65,4 +65,10 @@ public class AccountRepositoryImpl implements AccountRepository {
         jdbcTemplate.update(sql, new Object[]{username});
     }
 
+    @Override
+    public void changePassword(Account account) {
+        String sql = "update accounts set password = ? where username = ?";
+        jdbcTemplate.update(sql, account.getPassword(), account.getUsername());
+    }
+
 }

@@ -51,4 +51,25 @@ public class AccountServiceImpl implements AccountService {
         return result;
     }
 
+    @Override
+    public boolean changePassword(HttpServletRequest request) {
+        String username = request.getParameter("username");
+        String oldPass = request.getParameter("old-pass");
+        String newPass = request.getParameter("new-pass");
+
+        Account acc = new Account();
+        acc.setUsername(username);
+        acc.setPassword(this.md5Hash(oldPass));
+
+        Account existedAccount = accountRepository.getAccount(acc);
+        if (existedAccount != null) {
+            Account newAccount = new Account();
+            newAccount.setUsername(username);
+            newAccount.setPassword(this.md5Hash(newPass));
+            accountRepository.changePassword(newAccount);
+            return true;
+        }
+        return false;
+    }
+
 }

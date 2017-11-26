@@ -85,8 +85,25 @@ public class AccountController {
         } else {
             model = new ModelAndView("login",
                     "message", "Username or Password is incorrect");
+            model.addObject("account", new Account(account.getUsername()));
         }
 
+        return model;
+    }
+
+    @RequestMapping(value = "/change-password", method = RequestMethod.GET)
+    public String changePassword() {
+        return "changePassword";
+    }
+
+    @RequestMapping(value = "/change-password", method = RequestMethod.POST)
+    public ModelAndView changePasswordSubmit(HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("changePassword");
+        if (accountService.changePassword(request)) {
+            model.addObject("success", "Password has been changed");
+        } else {
+            model.addObject("fail", "Invalid old password");
+        }
         return model;
     }
 
