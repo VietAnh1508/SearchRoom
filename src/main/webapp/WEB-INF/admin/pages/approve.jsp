@@ -47,7 +47,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="<c:url value="/delete?post-id=${post.id}"/>"
+                                        <a href="<c:url value="/rooms/delete?post-id=${post.id}"/>"
                                            onclick="return confirm('<spring:message code="message.confirm"/>');">
                                         <spring:message code="label.delete"/>
                                     </a>

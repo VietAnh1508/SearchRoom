@@ -45,6 +45,7 @@
                             <tr>
                                 <th><spring:message code="label.id"/></th>
                                 <th><spring:message code="label.description"/></th>
+                                <th><spring:message code="label.rooms.of.type"/></th>
                                 <th><spring:message code="label.edit"/></th>
                                 <th><spring:message code="label.delete"/></th>
                             </tr>
@@ -54,15 +55,23 @@
                                 <tr>
                                     <th scope="row">${roomType.id}</th>
                                     <td>${roomType.description}</td>
+                                    <td>${roomType.roomAmount}</td>
                                     <td>
                                         <a href="<c:url value="/admin/room-type/edit?id=${roomType.id}"/>">
                                             <spring:message code="label.edit"/>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="<c:url value="/admin/room-type/delete?id=${roomType.id}"/>">
-                                            <spring:message code="label.delete"/>
-                                        </a>
+                                        <c:choose>
+                                            <c:when test="${roomType.roomAmount == 0}">
+                                                <a href="<c:url value="/admin/room-type/delete?id=${roomType.id}"/>">
+                                                    <spring:message code="label.delete"/>
+                                                </a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <spring:message code="label.delete"/>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </td>
                                 </tr>
                             </c:forEach>

@@ -2,6 +2,7 @@ package com.searchroom.repository;
 
 import com.searchroom.model.entities.RoomType;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface RoomTypeRepository {

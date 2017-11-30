@@ -19,6 +19,7 @@
                             <th><spring:message code="label.username"/></th>
                             <th><spring:message code="label.role"/></th>
                             <th><spring:message code="label.post.amount"/></th>
+                            <th><spring:message code="label.change"/></th>
                             <th><spring:message code="label.delete"/></th>
                         </tr>
                         </thead>

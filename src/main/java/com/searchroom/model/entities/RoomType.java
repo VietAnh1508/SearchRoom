@@ -9,12 +9,20 @@ public class RoomType {
     @NotEmpty
     private String description;
 
+    private int roomAmount;
+
     public RoomType() {
     }
 
-    public RoomType(int id, String description) {
+    public RoomType(int id, @NotEmpty String description) {
         this.id = id;
         this.description = description;
+    }
+
+    public RoomType(int id, String description, int roomAmount) {
+        this.id = id;
+        this.description = description;
+        this.roomAmount = roomAmount;
     }
 
     public int getId() {
@@ -31,6 +39,14 @@ public class RoomType {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getRoomAmount() {
+        return roomAmount;
+    }
+
+    public void setRoomAmount(int roomAmount) {
+        this.roomAmount = roomAmount;
     }
 
 }
